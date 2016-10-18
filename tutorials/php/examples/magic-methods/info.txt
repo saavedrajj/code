@@ -1,0 +1,4 @@
+https://www.google.ie/search?q=php+funciones+magicas&ie=utf-8&oe=utf-8&gws_rd=cr&ei=tzEtVv7CLMb4Uv3Fl7AB
+
+http://programandolo.blogspot.ie/2013/08/php-orientado-objetos-metodos-magicos-1.html
+http://www.nebaris.com/post/97/metodos-magicos-en-php-parte-1

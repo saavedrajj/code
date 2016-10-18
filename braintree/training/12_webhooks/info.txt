@@ -1,0 +1,2 @@
+info
+https://developers.braintreepayments.com/javascript+php/guides/webhooks/overview
