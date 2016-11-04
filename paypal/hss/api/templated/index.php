@@ -69,7 +69,7 @@
         'L_BUTTONVAR33' => 'showBillingPhone=true', /* Display billing phone number. Default Value: true. Allowable Value: true or false, where true = show and false = hide. */
         'L_BUTTONVAR34' => 'showCustomerName=true', /* Display customer name (first name and last name). Default Value: true. Allowable Value: true or false, where true = show and false = hide. */
         'L_BUTTONVAR35' => 'showCardInfo=true',
-        'L_BUTTONVAR36' => 'showHostedThankyouPage=true', /* Display PayPal’s confirmation page. Default Value: true. Allowable Value: true or false, where true = show and false = hide. */
+        'L_BUTTONVAR36' => 'showHostedThankyouPage=false', /* Display PayPal’s confirmation page. Default Value: true. Allowable Value: true or false, where true = show and false = hide. */
         'L_BUTTONVAR37' => 'bn=', /* Identifies the source that built the code for the button. Format - <Company>_<Service>_<Product>_<Country> */
         'L_BUTTONVAR38' => 'cbt=2222', /* Footer text. Optional. default: Name of the account */
         'L_BUTTONVAR39' => 'address_override=true',  /* The payer is shown the passed-in address but cannot edit it. This variable is overridden if there are errors in the address. The allowable values are true/false. Default is false. */
