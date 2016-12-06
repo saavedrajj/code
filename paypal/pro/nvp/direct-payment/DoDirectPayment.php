@@ -28,7 +28,7 @@
     'AMT' => urlencode("8.88"),
     'CREDITCARDTYPE' => $cardtype,// Visa|MasterCard|Discover|Amex|Maestro.
     'ACCT' => urlencode("4485398431677230"), // www.getcreditcardnumbers.com
-    'EXPDATE' =>urlencode("022016"),
+    'EXPDATE' =>urlencode("022017"),
     'CVV2'=> urlencode("123"),
     //'&FIRSTNAME='.urlencode("Maria").
     //'&LASTNAME='.urlencode("Garcia").
