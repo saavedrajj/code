@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	function persona (nombre, edad) {
+		this.nombre = nombre;
+		this.edad = edad;
+		this.anoDeNacimiento = nacimiento;
+	}
+
+	function nacimiento() {
+		var anos = 2016 - this.edad;
+		return anos;
+	}
+
+	var maria = new persona("Maria",27);
+	var pedro = new persona("Pedro",27);
+	</script>	
+</head>
+<body>
+	<script type="text/javascript">
+	document.write(maria.nombre + " tiene " + maria.edad + " anos. " + "Nacio en " + maria.anoDeNacimiento()) + "<br/>";
+
+	document.write(pedro.nombre + " tiene " + pedro.edad + " anos. " + "Nacio en " + pedro.anoDeNacimiento()) + "<br/>";
+	</script>	
+</body>
+</html>

@@ -4,6 +4,10 @@ require_once('functions.php');
 $sandbox = true;
 $api_version = '122.0';
 $paypal_account = "esintegracion@paypal.com";
+$paypal_account = "uk_custom@saavedrajj.com";
+
+
+
 $ipn_listener = "http://saavedrajj.com/code/paypal/ipn/ipn-listener.php";
 $footer_text = "&copy; ".date('Y')." <a href='http://saavedrajj.com' target='_blank'>Juan Saavedra</a> <a href='http://twitter.com/saavedrajj' target=_blank>@saavedrajj</a>";
 if ($_SERVER['REMOTE_ADDR']=='127.0.0.1') { $webserver = "http://127.0.0.1/"; } else { $webserver = "http://saavedrajj.com/"; }
