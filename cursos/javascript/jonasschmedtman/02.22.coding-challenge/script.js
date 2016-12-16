@@ -2,7 +2,7 @@ year = new Date().getFullYear();
 
 // Step 1
 console.log('Step 1');
-var years = [1965, 2008, 1992, 1940];
+var years = [2001, 1985, 1994, 2014, 1973];
 console.log(years);
 
 
@@ -13,7 +13,6 @@ console.log(ages);
 
 
 // Step 3
-//var ages2 = []; 
 console.log('Step 3');
 for (i = 0; i < years.length; i++) {
 	ages[i] = year - years[i];
@@ -23,14 +22,11 @@ console.log(ages);
 
 // Step 4
 console.log('Step 4');
-
 for (i = 0; i < ages.length; i++) {
-	//var age = year - ages2[i];
-	//console.log(age);
 	if (ages[i] >= 18) {
-		console.log('Person ' + i + ' is ' + ages[i] + ' years old, and is of full age.');
+		console.log('Person ' + (i + 1) + ' is ' + ages[i] + ' years old, and is of full age.');
 	} else {
-		console.log('Person ' + i + ' is ' + ages[i] + ' years old, and is NOT of full age.');		
+		console.log('Person ' + (i + 1) + ' is ' + ages[i] + ' years old, and is NOT of full age.');		
 	}	
 }
 
@@ -38,42 +34,35 @@ for (i = 0; i < ages.length; i++) {
 // Step 5
 console.log('Step 5');
 
-function printFullAge(vectorAges) {
-	// Step 5.2
-	var ages52 = [];
-	console.log(ages52);	
+function printFullAge(years){
+	var ages = [];
+	var fullAges = [];
 
-	// Step 5.3
-	var ages53 = [];	 
-	for (i = 0; i < ages1.length; i++) {
-		ages53[i] = vectorAges[i];
+	for (i = 0; i < years.length; i++) {
+		ages[i] = year - years[i];
 	}
-	console.log(ages53);
-	
-	// Step 5.4
-	var ages54 = [];
-	
-	for (i = 0; i < ages53.length; i++) {
 
-		if (year - ages53[i] >= 18) {
-			ages54[i] = true;
+	for (i = 0; i < ages.length; i++) {
+		if (ages[i] >= 18) {
+			console.log('Person ' + (i + 1) + ' is ' + ages[i] + ' years old, and is of full age.');
+			fullAges.push(true);
 		} else {
-			ages54[i] = false;			
-		}
+			console.log('Person ' + (i + 1) + ' is ' + ages[i] + ' years old, and is NOT of full age.');		
+			fullAges.push(false);	
+		}	
 	}
-	return(ages54);
+	return fullAges;
 }
-
-var a = printFullAge(ages2);
+var a = printFullAge(ages);
 console.log(a); 
 
 
 // Step 6
 console.log('Step 6');
-var vector1 = [1970, 2000, 2000];
-var vector2 = [2000, 1970, 2010];
+var years = [2001, 1985, 1994, 2014, 1973];
+var full_1 = printFullAge(years);
 
-var full_1 = printFullAge(vector1);
-var full_2 = printFullAge(vector2);
+var years = [2001, 1985, 1994, 2014, 1973];
+var full_2 = printFullAge([2012,1950, 1999]);
 console.log(full_1);
 console.log(full_2);
