@@ -49,15 +49,15 @@
 
     		// Send NVP string to PayPal and store response
 			$curl = curl_init();
-			curl_setopt($curl, CURLOPT_VERBOSE, 1);
-			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-			curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
-			curl_setopt($curl, CURLOPT_TIMEOUT, 30);
-			curl_setopt($curl, CURLOPT_URL, $api_endpoint);
-			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($curl, CURLOPT_POSTFIELDS, $nvp_string);
-			curl_setopt($curl, CURLOPT_SSLVERSION, 4);
-			curl_setopt($curl, CURLOPT_SSL_CIPHER_LIST, 'SSLv3');
+    curl_setopt($curl, CURLOPT_VERBOSE, 1);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+    curl_setopt($curl, CURLOPT_TIMEOUT, 30);
+    curl_setopt($curl, CURLOPT_URL, $api_endpoint);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $nvp_string);
+    curl_setopt($curl, CURLOPT_SSLVERSION, 6);
+    curl_setopt($curl, CURLOPT_SSL_CIPHER_LIST, 'SSLv3');
 
 			$result = curl_exec($curl);
 			curl_close($curl);

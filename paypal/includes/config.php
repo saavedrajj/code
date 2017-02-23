@@ -108,9 +108,7 @@ if ($_SERVER['REMOTE_ADDR']=='127.0.0.1') { $webserver = "http://127.0.0.1/"; } 
 
   }
 
-  /*
-​
- 
+/*
 payments_api1.stockemporium.com   
 STQ7Z3NP57A3GAM9
 AFcWxV21C7fd0v3bYYYRCpSSRl31ADXGUIa-zWNtdC4FbJLi-Rc1VSbl
@@ -118,11 +116,9 @@ hi
 im juan from PayPal Webdeveloper technical support
 im making a follow up of this case and i just want to know if you have started the integretation process.
 
-
 */
 
 /*
-
 sergio uk
 
 $API_UserName = urlencode('sergio-merchantSignature_api1.fake.com'); 
@@ -130,18 +126,11 @@ $API_Password = urlencode('TLDVURJT756D5D67');
 $API_Signature = urlencode('AFcWxV21C7fd0v3bYYYRCpSSRl31AjORBP0rNaaZnxwbGMiAeKq3aSMZ');
 la cuenta es pro
 
-
-
-
-
 Try this one
-
-
 
 Username:seller2_api1.sandbox2.dav
 Password:1368626715
 Signature:Aouf9KzajKFXKHAdcbit6VEj9oTsAm1.gEEC-DVj5x-y41iJldIJSXpZ
-
 
 PHP STUFF
 
@@ -156,6 +145,14 @@ Password: 123456789
 
 
 
+uk_business_pro_api1.saavedrajj.com
+JDA68D35J3ZSEXXR
+AFcWxV21C7fd0v3bYYYRCpSSRl31AsqRU1z5OG83sAuUvDj0aVnTKqMw
 
 
- */
+uk_merchant_api1.saavedrajj.com
+LKNLUNZ3USTHQBU4
+AFcWxV21C7fd0v3bYYYRCpSSRl31AYIzFJxn8b.gOizb1wSGL-8sE9tu
+
+
+*/

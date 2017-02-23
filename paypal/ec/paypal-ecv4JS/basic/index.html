@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+        <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <title>Paypal Express Checkout</title>
+        </head>
+        <body>    
+            <div id="paypal-button"></div> 
+            <div id="successinfo"></div>
+            <iframe id="success" src="http://cnn.com/" width="500" height="500" style="display:none;"></iframe>
+            
+
+            <script src="https://www.paypalobjects.com/api/checkout.js" data-version-4></script>
+            <script>
+                paypal.Button.render({
+                    env: 'sandbox', //Optional: specify 'sandbox' or 'production' environment
+                    client: {
+                        sandbox:    'AXCOEklTq2tnNEp8TWNbjlhbX8_nKBNPT8adfgXaV28gzHl4f0wVsCu2lNgc9z2o7nGJNEjBLzrRx08d', //hi@tapaspro.com: AT9EpZNxDZQyyyDTzMhs0kSWTsrGPedZgJFuMo7NxaSJtK4VVnSQulwzn5ukoty4fsNUx3CiL8rVrQhU
+                        production: 'xxxxxxxxx'
+                    },
+                    locale: 'es_ES', //default:en_US; en_AU, en_GB, fr_CA, es_ES, it_IT, fr_FR, de_DE, pt_BR, zh_CN, da_DK, zh_HK, id_ID, he_IL, ja_JP, nl_NL, no_NO, pl_PL, pt_PT, ru_RU, sv_SE, th_TH, zh_TW.
+                    style: {
+                        size: 'small', //small, tiny, medium
+                        color: 'silver', //gold, blue, silver
+                        shape: 'rect' //pill or rect
+                    },
+                    //commit: true, // 'Pay Now' button for ECM flow
+                    payment: function() {
+                        var env    = this.props.env;
+                        var client = this.props.client;
+
+                        return paypal.rest.payment.create(env, client, {
+                            //Additional parameters in https://developer.paypal.com/docs/api/payments/#payment_create_request
+                            //note_to_payer: 'CUSTOM TEXT TO BUYER', //It will auto-display the dropdown item list with the custom text
+                            intent:'sale',
+                            payer:{
+                                    payer_info:{
+                                        email: 'thisismyemail@gmail.com'
+                                    }
+                            },
+                            transactions: [
+                                {
+                                    "description": "This is the payment transaction description.",
+                                    amount: { 
+                                        total: '15.00', 
+                                        currency: 'GBP',
+                                        details :{
+                                            subtotal:'10.00',
+                                            tax:'1.00',
+                                            shipping:'4.00'
+                                        }
+                                    },
+                                    custom: 'this is my custom field',
+                                    //invoice_number:'',
+                                    item_list: {
+                                            items:[
+                                                {
+                                                    name:'hat',
+                                                    description:'Brown color hat',
+                                                    quantity:'1',
+                                                    price:'5.00',
+                                                    sku:'132546987',
+                                                    currency:'GBP'
+                                                },
+                                                {
+                                                    name:'gloves',
+                                                    description:'yellow gloves',
+                                                    quantity:'1',
+                                                    price:'5.00',
+                                                    sku:'2594864',
+                                                    currency:'GBP'
+                                                }
+                                                
+                                            ],
+                                            shipping_address:{
+                                                recipient_name:'hello world',
+                                                line1:'1 Barcelona Drive',
+                                                line2:'',
+                                                city:'Stroud',
+                                                country_code:'GB',
+                                                postal_code:'GL6 9DS',
+                                                phone:'0857289156',
+                                                state:'Gloucestershire'
+                                            }
+                                    }
+                                    
+                                }
+                            ]
+                            
+                        });
+                    },
+
+                    onAuthorize: function(data, actions) {
+                        
+                        // Optional: display a confirmation page here
+                        console.log("======================================================");
+                        console.log(data);
+                        console.log("======================================================");
+                        
+                        return actions.payment.execute().then(function() {
+                            // Show a success page to the buyer                                                        
+                            var success = document.getElementById('successinfo');
+                            success.innerHTML = success.innerHTML + "<h1>Order completed!</h1>";
+                            success.innerHTML = success.innerHTML + "<br>PayerID: "+data.payerID;
+                            success.innerHTML = success.innerHTML + "<br>PaymentID: "+data.paymentID;
+                            success.innerHTML = success.innerHTML + "<br>Token: "+data.paymentToken;
+
+                            document.getElementById("success").style.display="block";
+                        });
+                    },
+                    
+                    onCancel: function(data, actions) {
+                        console.log("======================================================");
+                        console.log(data);
+                        console.log("======================================================");
+                        document.write("Order cancelled, token: "+data.paymentToken);  
+                    },
+                    
+                    onError: function(err) {
+                        // Show an error page here, when an error occurs
+                        console.log(err);
+                    }                    
+
+                }, '#paypal-button');
+            </script>
+            
+            
+
+        </body>
+        </html>            
