@@ -11,49 +11,44 @@
     <script src="https://www.paypalobjects.com/api/checkout.js" data-version-4></script>
     <script>
         paypal.Button.render({
-                    env: 'sandbox', /* Specify 'sandbox' or 'production' environment */
-                    client: {
-                        sandbox:    'AdkGb9OhVi3BQJiW1jsKf4S-U-Qnoq7WpMMFVlI-supez6rpADs3TnRgH_znJglWBG4_6O0Mg8ruijg6',
-                        production: ''
-                    },
-                    locale: 'en_UGB', /* default:en_US; en_AU, en_GB, fr_CA, es_ES, it_IT, fr_FR, de_DE, pt_BR, zh_CN, da_DK, zh_HK, id_ID, he_IL, ja_JP, nl_NL, no_NO, pl_PL, pt_PT, ru_RU, sv_SE, th_TH, zh_TW.*/
-                    style: {
-                        size: 'small', /* tiny, small, medium */
-                        color: 'gold', /* gold, blue, silver */
-                        shape: 'rect' /* pill or rect */
-                    },
-                    commit: true, /* 'Pay Now' button for ECM flow */
-                    
-                    payment: function(resolve, reject) {
-                        var CREATE_PAYMENT_URL = 'http://127.0.0.1/code/paypal/ec/advanced-server/get-paymentid.php';
-                        paypal.request.post(CREATE_PAYMENT_URL)
-                        .then(function(data) { resolve(data.paymentID); })
-                        .catch(function(err) { reject(err); });
-                    },
-                    
-                    onAuthorize: function(data) {
-                    // Note: you can display a confirmation page before executing
-                    var EXECUTE_PAYMENT_URL = 'http://127.0.0.1/code/paypal/ec/advanced-server/executePayment.php';
-
-                    paypal.request.post(EXECUTE_PAYMENT_URL,
-                        { paymentID: data.paymentID, payerID: data.payerID })
-
-                    .then(function(data) { 
-                        /* Go to a success page */ 
-                        console.log("+++++++ SUCCESS ++++++++");
-                        console.log(data);
-                        console.log("+++++++++++++++");
-                        document.getElementById("success").innerHTML = data.id;
-                        
-                    })
-                    .catch(function(err) { 
-                        /* Go to an error page  */ 
-                        console.log("+++++++ ERROR ++++++++");
-                        console.log(err);
-                    });
-                }                
-
-            }, '#paypal-button');
-        </script>
+            env: 'sandbox', /* Specify 'sandbox' or 'production' environment */
+            client: {
+                sandbox:    'AdkGb9OhVi3BQJiW1jsKf4S-U-Qnoq7WpMMFVlI-supez6rpADs3TnRgH_znJglWBG4_6O0Mg8ruijg6',
+                production: ''
+            },
+            locale: 'en_UGB', 
+            /* default:en_US; en_AU, en_GB, fr_CA, es_ES, it_IT, fr_FR, de_DE, pt_BR, zh_CN, da_DK, zh_HK, id_ID, he_IL, ja_JP, nl_NL, no_NO, pl_PL, pt_PT, ru_RU, sv_SE, th_TH, zh_TW.*/
+            style: {
+                size: 'small', /* small | tiny | medium */ 
+                color: 'blue', /* gold  | blue | silver */
+                shape: 'rect'  /* pill  | rect          */
+            },
+            commit: true, /* 'Pay Now' button for ECM flow */
+            payment: function(resolve, reject) {
+                var CREATE_PAYMENT_URL = 'http://127.0.0.1/code/paypal/ec/advanced-server/get-paymentid.php';
+                paypal.request.post(CREATE_PAYMENT_URL)
+                .then(function(data) { resolve(data.paymentID); })
+                .catch(function(err) { reject(err); });
+            },
+            onAuthorize: function(data) {
+                /* Note: you can display a confirmation page before executing */
+                var EXECUTE_PAYMENT_URL = 'http://127.0.0.1/code/paypal/ec/advanced-server/executePayment.php';
+                paypal.request.post(EXECUTE_PAYMENT_URL,
+                    { paymentID: data.paymentID, payerID: data.payerID })
+                .then(function(data) { 
+                    /* Go to a success page */ 
+                    console.log("+++++++ SUCCESS ++++++++");
+                    console.log(data);
+                    console.log("+++++++++++++++");
+                    document.getElementById("success").innerHTML = data.id;
+                })
+                .catch(function(err) { 
+                    /* Go to an error page  */ 
+                    console.log("+++++++ ERROR ++++++++");
+                    console.log(err);
+                });
+            }                
+        }, '#paypal-button');
+    </script>
 </body>
-</html>            
+</html>

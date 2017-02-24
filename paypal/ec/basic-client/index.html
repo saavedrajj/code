@@ -11,86 +11,75 @@
 
 	<script>
 		paypal.Button.render({
-
         env: 'sandbox', // Optional: specify 'sandbox' environment
-
         client: {
         	sandbox:    'ARnrDih1nAgZHMRZWokGE8_9LUY5BZFybjJKsT0ABZrALN8intD21rjbr-Tw1IdDoTFg3ZbcgIKFWCcH',
         	production: 'AUrCk4sIBEHtsP8O-jNec6qR49ynJQIkUfdh4rDzBXS5AlHFXLRK_sEmSDiM45FG8su9jn2-xiATEfHC'
         },
-        locale: 'en_GB', /*default:en_US; en_AU, en_GB, fr_CA, es_ES, it_IT, fr_FR, de_DE, pt_BR, zh_CN, da_DK, zh_HK, id_ID, he_IL, ja_JP, nl_NL, no_NO, pl_PL, pt_PT, ru_RU, sv_SE, th_TH, zh_TW. */
+        locale: 'en_GB', 
+        /*default:en_US; en_AU, en_GB, fr_CA, es_ES, it_IT, fr_FR, de_DE, pt_BR, zh_CN, da_DK, zh_HK, id_ID, he_IL, ja_JP, nl_NL, no_NO, pl_PL, pt_PT, ru_RU, sv_SE, th_TH, zh_TW. */
         style: {
-        	size: 'small', /* small, tiny, medium */ 
-        	color: 'blue', /* gold, blue, silver */
-        	shape: 'rect' /* pill or rect */
+        	size: 'small', /* small | tiny | medium */ 
+        	color: 'blue', /* gold  | blue | silver */
+        	shape: 'rect'  /* pill  | rect          */
         },
-
         payment: function() {
-
         	var env    = this.props.env;
         	var client = this.props.client;
-
         	return paypal.rest.payment.create(env, client, {
-        		 transactions: [
-                                {
-                                    "description": "This is the payment transaction description.",
-                                    amount: { 
-                                        total: '5.00', 
-                                        currency: 'GBP',
-                                        details :{
-                                            subtotal:'2.00',
-                                            tax:'2.00',
-                                            shipping:'1.00'
-                                        }
-                                    },
-                                    custom: 'Custom field',
-                                    //invoice_number:'',
-                                    item_list: {
-                                            items:[
-                                                {
-                                                    name:'Item 1',
-                                                    description:'Item 1 description',
-                                                    quantity:'1',
-                                                    price:'1.00',
-                                                    sku:'000001',
-                                                    currency:'GBP'
-                                                },
-                                                {
-                                                    name:'Item 2',
-                                                    description:'Item 2 description',
-                                                    quantity:'1',
-                                                    price:'1.00',
-                                                    sku:'000002',
-                                                    currency:'GBP'
-                                                }
-                                                
-                                            ],
-                                            shipping_address:{
-                                                recipient_name:'John Doe',
-                                                line1:'123 Oxford Street',
-                                                line2:'',
-                                                city:'London',
-                                                country_code:'GB',
-                                                postal_code:'SW7 9SD',
-                                                phone:'012345678',
-                                                state:'London'
-                                            }
-                                    }
-                                    
-                                }
-                            ]
-                            
-                        });
+               transactions: [
+               {
+                "description": "This is the payment transaction description.",
+                amount: { 
+                    total: '5.00', 
+                    currency: 'GBP',
+                    details :{
+                        subtotal:'2.00',
+                        tax:'2.00',
+                        shipping:'1.00'
+                    }
+                },
+                custom: 'Custom field',
+                /* invoice_number:'', */
+                item_list: {
+                    items:[
+                    {
+                        name:'Item 1',
+                        description:'Item 1 description',
+                        quantity:'1',
+                        price:'1.00',
+                        sku:'000001',
+                        currency:'GBP'
                     },
-
-        commit: true, // Optional: show a 'Pay Now' button in the checkout flow
-
+                    {
+                        name:'Item 2',
+                        description:'Item 2 description',
+                        quantity:'1',
+                        price:'1.00',
+                        sku:'000002',
+                        currency:'GBP'
+                    }
+                    ],
+                    shipping_address:{
+                        recipient_name:'John Doe',
+                        line1:'123 Oxford Street',
+                        line2:'',
+                        city:'London',
+                        country_code:'GB',
+                        postal_code:'SW7 9SD',
+                        phone:'012345678',
+                        state:'London'
+                    }
+                }
+            }
+            ]
+        });
+        },
+        commit: true, /* Optional: show a 'Pay Now' button in the checkout flow */
         onAuthorize: function(data, actions) {
-
-            // Optional: display a confirmation page here
-
+            /* Optional: display a confirmation page here */
             return actions.payment.execute().then(function() {
-                // Show a success page to the buyer
+                /* Show a success page to the buyer */
                 var success = document.getElementById('success-message');
                 success.innerHTML = success.innerHTML + "<h1>Order completed</h1>";
                 success.innerHTML = success.innerHTML + "<br>PayerID: " + data.payerID;
@@ -99,13 +88,10 @@
                 document.getElementById("success").style.display = "block";
             });
         }
-
     }, '#paypal-button');
 </script>
 </body>
 </html>
-
-
 
 <!--
 SANDBOX
