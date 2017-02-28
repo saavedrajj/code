@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var parrafos = new Array();
+		parrafos = document.getElementsByTagName("p");
+		console.log(parrafos);
+		var primerParrafo = parrafos[0];
+		console.log(primerParrafo);
+		var x;
+		x = document.getElementsByTagName("li").length;
+		console.log(x);
+	</script>
+</head>
+<body>
+	<p>An unordered list:</p>
+	<ul>
+		<li>Coffee</li>
+		<li>Tea</li>
+		<li>Milk</li>
+	</ul>
+	<p>Click the button to find out how many li elements there are in this document.</p>
+	<p id="demo"></p>
+</body>
+</html>
