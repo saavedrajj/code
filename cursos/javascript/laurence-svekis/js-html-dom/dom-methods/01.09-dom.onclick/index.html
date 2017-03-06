@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World</title>
+	<style>
+		.btn {
+			padding: 10px;
+			border: 1px solid black;
+			display: inline-block;
+		}
+		#btn1 {
+			background-color:aqua;
+		}
+		div {
+			background-color: bisque;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="btn1" class="btn">Click Me</div>
+	<div id="btn2" class="btn">Click Me</div>
+	<div id="output">nothing</div>
+	<img src="http://lorempixel.com/400/200" id="myImage">
+	<script>
+		console.log('lecture 01.09');
+		console.dir(document);
+		var btn1 = document.getElementById("btn1");
+		var btn2 = document.getElementById("btn2");		
+		var output = document.getElementById("output");
+		btn1.onclick = myFun;
+		btn2.onclick = function () {
+			output.innerHTML = "CLICKED 2";
+			btn2.style.backgroundColor="yellow";
+		}		
+		function myFun() {
+			output.innerHTML = "CLICKED";
+			btn1.style.backgroundColor="yellow";
+		}
+
+	</script>
+</body>
+</html>

@@ -27,53 +27,53 @@
         	var env    = this.props.env;
         	var client = this.props.client;
         	return paypal.rest.payment.create(env, client, {
-               transactions: [
-               {
-                "description": "This is the payment transaction description.",
-                amount: { 
-                    total: '5.00', 
-                    currency: 'GBP',
-                    details :{
-                        subtotal:'2.00',
-                        tax:'2.00',
-                        shipping:'1.00'
-                    }
-                },
-                custom: 'Custom field',
-                /* invoice_number:'', */
-                item_list: {
-                    items:[
-                    {
-                        name:'Item 1',
-                        description:'Item 1 description',
-                        quantity:'1',
-                        price:'1.00',
-                        sku:'000001',
-                        currency:'GBP'
+                transactions: [
+                {
+                    "description": "This is the payment transaction description.",
+                    amount: { 
+                        total: '5.00', 
+                        currency: 'GBP',
+                        details :{
+                            subtotal:'2.00',
+                            tax:'2.00',
+                            shipping:'1.00'
+                        }
                     },
-                    {
-                        name:'Item 2',
-                        description:'Item 2 description',
-                        quantity:'1',
-                        price:'1.00',
-                        sku:'000002',
-                        currency:'GBP'
-                    }
-                    ],
-                    shipping_address:{
-                        recipient_name:'John Doe',
-                        line1:'123 Oxford Street',
-                        line2:'',
-                        city:'London',
-                        country_code:'GB',
-                        postal_code:'SW7 9SD',
-                        phone:'012345678',
-                        state:'London'
+                    custom: 'Custom field',
+                    /* invoice_number:'', */
+                    item_list: {
+                        items:[
+                        {
+                            name:'Item 1',
+                            description:'Item 1 description',
+                            quantity:'1',
+                            price:'1.00',
+                            sku:'000001',
+                            currency:'GBP'
+                        },
+                        {
+                            name:'Item 2',
+                            description:'Item 2 description',
+                            quantity:'1',
+                            price:'1.00',
+                            sku:'000002',
+                            currency:'GBP'
+                        }
+                        ],
+                        shipping_address:{
+                            recipient_name:'John Doe',
+                            line1:'123 Oxford Street',
+                            line2:'',
+                            city:'London',
+                            country_code:'GB',
+                            postal_code:'SW7 9SD',
+                            phone:'012345678',
+                            state:'London'
+                        }
                     }
                 }
-            }
-            ]
-        });
+                ]
+            });
         },
         commit: true, /* Optional: show a 'Pay Now' button in the checkout flow */
         onAuthorize: function(data, actions) {

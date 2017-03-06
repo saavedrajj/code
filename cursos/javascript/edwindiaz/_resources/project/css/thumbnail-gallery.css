@@ -1,0 +1,39 @@
+/*!
+ * Start Bootstrap - Thumbnail Gallery (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+}
+
+.thumb {
+    margin-bottom: 30px;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+
+.grid-item { 
+    width: 300px;
+    margin: 0 auto 20px auto;
+    padding: 20px;
+
+}
+.grid-item--width2 { width: 400px; }
+
+#container {
+    
+    width: 1000px;
+    
+    
+}
+
+.carimages{
+    
+    margin: 0 auto;
+    
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World</title>
+	<style>
+		.btn {
+			padding: 10px;
+			border: 1px solid black;
+			display: inline-block;
+		}
+		#btn1 {
+			background-color:aqua;
+		}
+	</style>
+</head>
+<body>
+	<div id="btn1" class="btn">Click Me</div>
+	<div id="bnt2" class="btn">Click Me</div>
+	<div id="output">nothing</div>
+	<img src="http://lorempixel.com/400/200" id="myImage">
+	<script>
+		console.log("lecture 01.04")
+		console.dir(document);
+		var myOutput = document.getElementById("btn1");
+		console.dir(myOutput);
+		myOutput.innerHTML = "New button";
+	</script>
+</body>
+</html>

@@ -50,28 +50,43 @@ $OAuthresponse = OAuth_rest($endpointToken, $postData, $clientID, $clientSecret)
 
     $postdata = '
     {
-     "intent":"sale",
-     "redirect_urls":{
-      "return_url":"http://127.0.0.1/code/paypal/ec/advanced-server/executePayment.php?access_token='.$_SESSION['access_token'].'",
-      "cancel_url":"http://www.yahoo.com/"
-    },
-    "payer":{
-      "payment_method":"paypal"
-    },
-    "transactions":[
-    {
-     "amount":{
-      "total":"1",
-      "currency":"GBP"
-    },
-    "description":"This is the payment transaction description.",
-    "custom": "This is my custom field",
-    "invoice_number": "48787589673' . time() . '"
-  }
-  ]
-}   
-';
+      "intent":"authorize",
+      "redirect_urls":{
+        "return_url":"http://127.0.0.1/code/paypal/ec/advanced-server/executePayment.php?access_token='.$_SESSION['access_token'].'",
+        "cancel_url":"http://www.yahoo.com/"
+      },
+      "payer":{
+        "payment_method":"paypal"
+      },
+      "transactions":[
+      {
+        "amount":{
+          "total":"1",
+          "currency":"GBP"
+        },
+        "description":"This is the payment transaction description.",
+        "custom": "This is my custom field",
+        "invoice_number": "48787589673' . time() . '"
 
-$apicall = REST_make_post_call($endpointPayment, $postdata, $OAuthresponse["access_token"]);
-echo '{"paymentID": "'.$apicall["id"].'"}';       
-?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      }
+      ]
+      
+    }';
+
+    $apicall = REST_make_post_call($endpointPayment, $postdata, $OAuthresponse["access_token"]);
+    echo '{"paymentID": "'.$apicall["id"].'"}';       
+    ?>

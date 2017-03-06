@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World</title>
+	<style>
+		.btn {
+			padding: 10px;
+			border: 1px solid black;
+			display: inline-block;
+		}
+		#btn1 {
+			background-color:aqua;
+		}
+		div {
+			background-color: bisque;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="btn1" class="btn">Click Me</div>
+	<div id="bnt2" class="btn">Click Me</div>
+	<div id="output">nothing</div>
+	<img src="http://lorempixel.com/400/200" id="myImage">
+	<script>
+		console.log("lecture 01.04")
+		console.dir(document);
+		var myOutput = document.getElementById("btn1");
+		console.dir(myOutput);
+		myOutput.innerHTML = "New button";
+		/*myOutput.innerText = "New<br> button";*/		
+		console.log("lecture 01.05")
+		var myButtons = document.getElementsByClassName("btn");
+		console.dir(myButtons[1]);
+		var myTags = document.getElementsByTagName("div");
+		console.dir(myTags[1]);	
+		console.log("lecture 01.06")	
+		var mySel = document.querySelectorAll("div.btn");
+		console.dir(mySel[1]);	
+
+		document.getElementById("output").innerHTML = document.title;
+
+		console.log("lecture 01.07")
+		console.log(document.getElementById("myImage").src);
+		document.getElementById("myImage").src = "http://lorempixel.com/100/100";
+		document.getElementById("btn1").style.backgroundColor = "red";
+		console.dir(document.getElementById("btn1").style);	
+	</script>
+</body>
+</html>

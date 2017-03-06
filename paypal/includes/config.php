@@ -46,8 +46,8 @@ if ($_SERVER['REMOTE_ADDR']=='127.0.0.1') { $webserver = "http://127.0.0.1/"; } 
     case "esintegracion@paypal.com":
     $api_endpoint = $sandbox ? 'https://api-3t.sandbox.paypal.com/nvp' : 'https://api-3t.paypal.com/nvp';
     $api_username = $sandbox ? 'esintegracion_api1.paypal.com' : 'LIVE_USERNAME_GOES_HERE';
-    $api_password = $sandbox ? 'N9RBQ66HZC2FAPUA' : 'LIVE_PASSWORD_GOES_HERE';
-    $api_signature = $sandbox ? 'AydS4oase0tNkVM5L0C828ZsAriXAnqlS61Du6Q6Sp2XJXC9Q.dci.8b' : 'LIVE_SIGNATURE_GOES_HERE';
+    $api_password = $sandbox ? 'ELW824XHKTXP2Z9D' : 'LIVE_PASSWORD_GOES_HERE';
+    $api_signature = $sandbox ? 'AFcWxV21C7fd0v3bYYYRCpSSRl31A8uaBSWO6EZnvpTp-zAayzVaUZiX' : 'LIVE_SIGNATURE_GOES_HERE';
     $my_merchant_id = 'RDA3LHHQQ5GLL';
     break;
     case "de_personal@saavedrajj.com":
