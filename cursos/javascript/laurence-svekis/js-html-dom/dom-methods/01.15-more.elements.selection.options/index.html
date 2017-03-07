@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello World</title>
+    <style>
+        .btn {
+            padding: 10px;
+            border: 1px solid black;
+            display: inline-block;
+        }
+        div {}
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="btn1" class="btn">Click Me 1</div>
+        <div id="btn2" class="btn">Click Me 2</div>
+        <div id="btn3" class="btn">Click Me 3</div>
+        <div id="btn4" class="btn">Click Me 4</div>
+    </div>
+    <div id="output">nothing</div>
+    <img src="http://lorempixel.com/400/200" id="myImage" />
+    <script>
+        console.dir(document);
+        var output = document.getElementById("output");
+
+        var btnCN = document.getElementById("main").childNodes;
+        console.dir(btnCN);
+        for (i=0;i<btnCN.length;i++){
+
+            if (btnCN[i].nodeName=="DIV") {
+                console.log(btnCN[i].id);
+                btnCN[i].addEventListener('click',myFun);
+            }
+
+        }
+/*
+        var btnEl = document.querySelectorAll(".btn"); 
+        //console.dir(btnEl.length);
+        for(i=0; i < btnEl.length;i++) {
+            //console.log(btnEl[i].innerHTML);
+            btnEl[i].addEventListener('click',myFun);
+
+        }
+*/
+        function myFun(e) {
+            console.log(this.id);
+            output.innerHTML = "CLICKED";
+            this.style.border = "3px solid blue";
+        }
+
+        function myFun2(e) {
+            console.log("myFun2");
+            output.innerHTML = "Mouse X " + e.x;
+            this.style.border = "3px solid red";
+        }
+        
+    </script>
+</body>
+
+</html>
