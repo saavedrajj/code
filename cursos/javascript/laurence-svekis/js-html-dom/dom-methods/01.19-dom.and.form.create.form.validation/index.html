@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Hello World</title>
+  <style>
+    .btn {
+      padding: 10px;
+      border: 1px solid black;
+      display: inline-block;
+    }
+
+    div {}
+
+  </style>
+</head>
+
+<body>
+  <div id="output"></div>
+  <form action="form.php" method="post" id="myForm">
+   <div>
+     <label for="name">Name:</label>
+     <input type="text" id="name">
+   </div>
+   <div>
+     <label for="mail">E-mail:</label>
+     <input type="email" id="mail">
+   </div>
+   <div>
+     <label for="msg">Message:</label>
+     <textarea id="msg"></textarea>
+   </div>
+   <div class="button">
+     <button id="submit" type="submit">Send your message</button>
+   </div>
+ </form>
+
+ <script>
+  var output = document.getElementById("output");
+  document.getElementById("submit").onclick = checkForm;
+  document.getElementById("myForm").onsubmit = function() {
+    var myName = document.getElementById("name");
+    var myEmail = document.getElementById("mail");
+    var myMes = document.getElementById("msg");
+
+    var rMessage = "";
+
+    if (myName.value==='') {
+      rMessage = "Name not filled out<br>";
+    }
+
+    if (myEmail.value==='') {
+      rMessage = rMessage + "Email not filled out<br>";
+    }
+
+    if (!validateEmail(myEmail.value)) {
+      rMessage = rMessage+"NOT VALID Email<br>";
+    }
+
+    if (myMes.value==='') {
+      rMessage=rMessage+"Message not filled out<br>";
+    }
+
+    if(rMessage.length>0) {
+      output.innerHTML = rMessage;
+      return false;
+    }else{return true}
+  }
+
+
+  function validateEmail(email) {
+    var myCheck = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return myCheck.test(email);
+  }
+
+
+  function checkForm() {
+    output.innerHTML = "Clicked";
+  }
+</script>
+
+</body>
+
+</html>

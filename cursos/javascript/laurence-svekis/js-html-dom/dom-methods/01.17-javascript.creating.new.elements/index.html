@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello World</title>
+    <style>
+        .btn {
+            padding: 10px;
+            border: 1px solid black;
+            display: inline-block;
+        }
+        
+        div {}
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="btn1" class="btn">Click Me 1</div>
+        <div id="btn2" class="btn">Click Me 2</div>
+        <div id="btn3" class="btn">Click Me 3</div>
+        <div id="btn4" class="btn">Click Me 4</div>
+    </div>
+    <div id="output">nothing</div>
+    <img src="http://lorempixel.com/400/200" id="myImage" />
+    <script>
+        console.dir(document);
+        var output = document.getElementById("output");
+
+       document.getElementById("btn1").addEventListener('click',myFun);
+
+       function myFun() {
+       	var newEl = document.createElement("h1");
+       	var newContent = document.createTextNode("New H1 Tag");
+       	newEl.appendChild(newContent);
+       	output.appendChild(newEl);
+       	console.log(":myFUN!");
+       }
+    </script>
+</body>
+
+</html>
