@@ -7,6 +7,9 @@
     <script type="text/javascript" src="../jquery-3.0.0.js"></script>
     <script type="text/javascript">
         $("document").ready(function() {
+            //$("p[class]").css("border","3px solid red");
+            //$("p[id=para1]").css("border","3px solid red");
+            $("p[id^=para][lang*=en-]").css("border","3px solid red");                    
         });
     </script>
 </head>
