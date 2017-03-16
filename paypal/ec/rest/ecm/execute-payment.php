@@ -19,10 +19,12 @@ $execution->setPayerId($payerId);
 try {
   // Execute payment
   $result = $payment->execute($execution, $apiContext);
+  echo "payment done";
   //var_dump($result);
 } catch (PayPal\Exception\PayPalConnectionException $ex) {
   echo $ex->getCode();
   echo $ex->getData();
+   echo "failure"; 
   die($ex);
 } catch (Exception $ex) {
   die($ex);
