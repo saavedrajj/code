@@ -36,8 +36,8 @@
         'BUTTONTYPE' => 'PAYMENT',
         'BUTTONIMAGEURL' => 'https://www.paypal.com/es_ES/ES/i/btn/btn_xpressCheckout.gif',
         'L_BUTTONVAR0' => 'subtotal=10', /* Amount charged for the transaction. If shipping, handling, and taxes are not specified, this is the total amount charged. */
-        'L_BUTTONVAR1' => 'tax=3', /* Taxes charged. This amount is added to subtotal for the total amount. */
-        'L_BUTTONVAR2' => 'shipping=3', /* Shipping charged. This amount is added to subtotal for the total amount. */
+        'L_BUTTONVAR1' => 'tax=3.1', /* Taxes charged. This amount is added to subtotal for the total amount. */
+        'L_BUTTONVAR2' => 'shipping=3.11', /* Shipping charged. This amount is added to subtotal for the total amount. */
         'L_BUTTONVAR3' => 'handling=5', /* Handling charged. This amount is added to subtotal for the total amount. */
         'L_BUTTONVAR4' => 'first_name=José', /* First name of person the item is being shipped to. */
         'L_BUTTONVAR5' => 'last_name=Pérez', /* Last name of person the item is being shipped to. */

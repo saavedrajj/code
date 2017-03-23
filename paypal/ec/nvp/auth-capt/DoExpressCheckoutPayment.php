@@ -17,6 +17,11 @@
   <?php
   $token = $_GET['token'];
   $payerid = $_GET['payerid'];
+
+
+  echo $token.'<br/>';
+  echo $payerid.'<br/>';
+
   /* Store request params in an array */
   $request_params = array (
     'METHOD' => 'DoExpressCheckoutPayment',
@@ -25,7 +30,7 @@
     'SIGNATURE' => $api_signature,
     'VERSION' => $api_version,
     'TOKEN' => $token,
-  'PAYERID' => $payerid, //customer's unique PayPal ID
+    'PAYERID' => $payerid, /* customer's unique PayPal ID */
   /*'MSGSUBID' => '123123',*/ // Unique ID passed for each API request to help prevent duplicate payments*/
   'PAYMENTREQUEST_0_PAYMENTACTION' => 'Authorization', // Authorization ¦ Order
   'PAYMENTREQUEST_0_AMT' => '20', # transaction amount
@@ -39,51 +44,46 @@
   /* Send NVP string to PayPal and store response */
   $curl = curl_init();
   curl_setopt($curl, CURLOPT_VERBOSE, 1);
-  curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-  curl_setopt($curl, CURLOPT_TIMEOUT, 30);
   curl_setopt($curl, CURLOPT_URL, $api_endpoint);
+  curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+  curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($curl, CURLOPT_POST, 1);
   curl_setopt($curl, CURLOPT_POSTFIELDS, $nvp_string);
   $result = curl_exec($curl);
   curl_close($curl);
+
   /* Parse the API response */
   $result_array = NVPToArray($result);
   ?>
-  <div class="page-header"><h1>Authorization & Capture<small></small></h1></div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">DoExpressCheckoutPayment API</h3>
-    </div>
-    <div class="panel-body">
-      <div class="list-group">
-        <a href="https://developer.paypal.com/docs/classic/api/merchant/SetExpressCheckout_API_Operation_NVP/" target="_blank" class="list-group-item">SetExpressCheckout <i class="glyphicon glyphicon-minus pull-right"></i></a>
-        <a href="https://developer.paypal.com/docs/classic/api/merchant/GetExpressCheckoutDetails_API_Operation_NVP/" target="_blank" class="list-group-item">GetExpressCheckoutDetails <i class="glyphicon glyphicon-minus pull-right"></i></a>
-        <a href="https://developer.paypal.com/docs/classic/api/merchant/DoExpressCheckoutPayment_API_Operation_NVP/" target="_blank" class="list-group-item active">DoExpressCheckoutPayment <i class="glyphicon glyphicon-ok pull-right"></i></a>
-        <a href="https://developer.paypal.com/docs/classic/api/merchant/DoCapture_API_Operation_NVP/" target="_blank" class="list-group-item">DoCapture <i class="glyphicon glyphicon-minus pull-right"></i></a>
-      </div>
-      <?php
-      if ("SUCCESS" == strtoupper($result_array["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($result_array["ACK"])) {
-        ?>
-        <div class="alert alert-success" role="alert">Success</div>
-        <pre><?php print_r($result_array);?></pre>
-        <?php
-        $transactionid = urldecode($result_array["PAYMENTINFO_0_TRANSACTIONID"]);
-        ?>
-        <ul class="list-group">
-          <li class="list-group-item"><a href="<?php echo $webserver; ?>code/paypal/ec/nvp/auth-capt/DoCapture.php?&transactionid=<?php echo $transactionid; ?>"><button type="button" class="btn btn-primary btn-lg">Do Capture</button></a></li>
-        </ul>
-        <?php
-      } else {
-        ?>
-        <div class="alert alert-danger" role="alert">Failure</div>
-        <pre><?php print_r($result_array);?></pre>
-        <?php
-      }
-      ?>
-    </div>
-    <div class="panel-footer"><?php echo $footer_text ?></div>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="../../../../vendors/bootstrap/js/bootstrap.min.js"></script>
+  <h1>Authorization & Capture</h1>
+
+  <h3 class="panel-title">DoExpressCheckoutPayment API</h3>
+  <ul>
+    <li><a href="https://developer.paypal.com/docs/classic/api/merchant/SetExpressCheckout_API_Operation_NVP/" target="_blank">SetExpressCheckout</a></li>
+    <li><a href="https://developer.paypal.com/docs/classic/api/merchant/GetExpressCheckoutDetails_API_Operation_NVP/" target="_blank">GetExpressCheckoutDetails</a></li>
+    <li><a href="https://developer.paypal.com/docs/classic/api/merchant/DoExpressCheckoutPayment_API_Operation_NVP/" target="_blank">DoExpressCheckoutPayment</a></li>
+    <li><a href="https://developer.paypal.com/docs/classic/api/merchant/DoCapture_API_Operation_NVP/" target="_blank">DoCapture </a></li>
+  </ul>
+
+  <?php
+  if ("SUCCESS" == strtoupper($result_array["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($result_array["ACK"])) {
+    ?>
+    <div>Success</div>
+    <pre><?php print_r($result_array);?></pre>
+    <?php
+    $transactionid = urldecode($result_array["PAYMENTINFO_0_TRANSACTIONID"]);
+    ?>
+    <ul>
+      <li><a href="<?php echo $webserver; ?>code/paypal/ec/nvp/auth-capt/DoCapture.php?&transactionid=<?php echo $transactionid; ?>"><button type="button">Do Capture</button></a></li>
+    </ul>
+    <?php
+  } else {
+    ?>
+    <div>Failure</div>
+    <pre><?php print_r($result_array);?></pre>
+    <?php
+  }
+  ?>
 </body>
 </html>
