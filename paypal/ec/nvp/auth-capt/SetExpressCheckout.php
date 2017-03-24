@@ -149,16 +149,17 @@ if ("SUCCESS" == strtoupper($result_array["ACK"]) || "SUCCESSWITHWARNING" == str
   $token = urldecode($result_array["TOKEN"]);
   $paypal_url = "https://www.sandbox.paypal.com/webscr&cmd=_express-checkout&token=$token";
   ?>
-  <p><?php require_once('../../../includes/items.html'); ?><a href="<?php echo $paypal_url; ?>" target="_blank"><button type="button" Pay with PayPal</button></a></p>
-  <ul>
-    <li>API response: <a href="<?php echo $paypal_url ?>" target="_blank"><?php echo $paypal_url ?></a></li>
-    <li >Classic Interface: <a href="<?php echo $paypal_url."&force_sa=true" ?>" targer="_blank"><?php echo $paypal_url."&force_sa=true" ?></a></li>
-  </ul>
-  <?php
-} else {
-  exit('SetExpressCheckout failed: ' .'<pre />'. print_r($result_array, true));
-}
-?>
+  <?php require_once('../../../includes/items.html'); ?>
+
+  <p><a href="<?php echo $paypal_url; ?>" target="_blank">
+    <button type="button">Pay with PayPal</button></a></p>
+    <p>API response: <a href="<?php echo $paypal_url ?>" target="_blank"><?php echo $paypal_url ?></a></p>
+
+    <?php
+  } else {
+    exit('SetExpressCheckout failed: ' .'<pre />'. print_r($result_array, true));
+  }
+  ?>
 
 </body>
 </html>

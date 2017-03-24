@@ -18,10 +18,6 @@
   $token = $_GET['token'];
   $payerid = $_GET['payerid'];
 
-
-  echo $token.'<br/>';
-  echo $payerid.'<br/>';
-
   /* Store request params in an array */
   $request_params = array (
     'METHOD' => 'DoExpressCheckoutPayment',
