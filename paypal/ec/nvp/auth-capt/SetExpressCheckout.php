@@ -1,4 +1,4 @@
-<?php require_once('../../../includes/config-es-custom.php'); ?>
+<?php require_once('../../../includes/config-uk-custom.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

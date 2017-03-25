@@ -14,9 +14,9 @@ $api_endpoint = $sandbox ? 'https://api-3t.sandbox.paypal.com/nvp' : 'https://ap
 */
 
 
-$api_username = $sandbox ? 'uk_custom_api1.saavedrajj.com' : 'LIVE_USERNAME_GOES_HERE';
-$api_password = $sandbox ? '4WHPJPYH489Q75WS' : 'LIVE_PASSWORD_GOES_HERE';
-$api_signature = $sandbox ? 'A36-1YqXkCPCZgrHigaud1VXAozyA91S5.n7AZ.rGJ05UB31oQybMDnR' : 'LIVE_SIGNATURE_GOES_HERE';
+$api_username = $sandbox ? 'uk_merchant_api1.saavedrajj.com' : 'LIVE_USERNAME_GOES_HERE';
+$api_password = $sandbox ? 'LKNLUNZ3USTHQBU4' : 'LIVE_PASSWORD_GOES_HERE';
+$api_signature = $sandbox ? 'AFcWxV21C7fd0v3bYYYRCpSSRl31AYIzFJxn8b.gOizb1wSGL-8sE9tu' : 'LIVE_SIGNATURE_GOES_HERE';
 
 
 /*
