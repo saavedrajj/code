@@ -1,4 +1,5 @@
 // Function constructor
+/*
 var john = {
 	name: 'John',
 	yearOfBirth: 1990,
@@ -29,3 +30,20 @@ mark.calculateAge();
 console.log(john.lastName);
 console.log(jane.lastName);
 console.log(mark.lastName);
+*/
+var personProto = {
+	calculateAge: function() {
+		console.log(2016 - this.yearOfbirth);
+	}
+}
+
+var john = Object.create(personProto);
+john.name = 'John';
+john.yearOfBirth = 1990;
+john.job = 'teacher';
+
+var jane = Object.create(PersonProto, {
+	name: {value: 'Jane'},
+	yearOfbirth: {value: 'Jane'},
+	name: {value: 'Jane'},	
+})
