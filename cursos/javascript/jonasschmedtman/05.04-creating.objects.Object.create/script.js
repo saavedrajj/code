@@ -31,6 +31,9 @@ console.log(john.lastName);
 console.log(jane.lastName);
 console.log(mark.lastName);
 */
+
+
+/* Object.create */
 var personProto = {
 	calculateAge: function() {
 		console.log(2016 - this.yearOfbirth);
@@ -42,8 +45,8 @@ john.name = 'John';
 john.yearOfBirth = 1990;
 john.job = 'teacher';
 
-var jane = Object.create(PersonProto, {
+var jane = Object.create(personProto, {
 	name: {value: 'Jane'},
-	yearOfbirth: {value: 'Jane'},
-	name: {value: 'Jane'},	
+	yearOfbirth: {value: 1969},
+	job: {value: 'designer'}	
 })
