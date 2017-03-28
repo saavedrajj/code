@@ -1,4 +1,19 @@
 <?php
+
+/*
+SDK
+https://developer.paypal.com/docs/api/quickstart/payments/
+
+https://developer.paypal.com/docs/integration/direct/make-your-first-call/
+
+https://developer.paypal.com/docs/api/payments/
+
+https://developer.paypal.com/docs/integration/direct/make-your-first-call/#make-an-api-call
+
+https://developer.paypal.com/docs/integration/direct/express-checkout/integration-jsv4/
+
+https://developer.paypal.com/docs/integration/direct/payments/paypal-payments/
+*/
 /*--- Set up the payment information object ---*/
 require __DIR__ . '/bootstrap.php';
 use PayPal\Api\Amount;
@@ -15,9 +30,19 @@ $payer = new Payer();
 $payer->setPaymentMethod("paypal");
 
 // Set redirect urls
+/*
 $redirectUrls = new RedirectUrls();
 $redirectUrls->setReturnUrl('http://127.0.0.1/code/paypal/ec/sdk/ecm/review.php')
 ->setCancelUrl('http://127.0.0.1/code/paypal/ec/sdk/ecm/cancel.php');
+*/
+// ### Redirect urls
+// Set the urls that the buyer must be redirected to after 
+// payment approval/ cancellation.
+$baseUrl = getBaseUrl();
+$redirectUrls = new RedirectUrls();
+$redirectUrls->setReturnUrl("$baseUrl/review.php")
+    ->setCancelUrl("$baseUrl/cancel.php");
+
 
 
 // ### Itemized information

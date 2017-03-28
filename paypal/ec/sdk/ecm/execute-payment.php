@@ -1,18 +1,5 @@
 <?php
-/*
-SDK
-https://developer.paypal.com/docs/api/quickstart/payments/
 
-https://developer.paypal.com/docs/integration/direct/make-your-first-call/
-
-https://developer.paypal.com/docs/api/payments/
-
-https://developer.paypal.com/docs/integration/direct/make-your-first-call/#make-an-api-call
-
-https://developer.paypal.com/docs/integration/direct/express-checkout/integration-jsv4/
-
-https://developer.paypal.com/docs/integration/direct/payments/paypal-payments/
-*/
 require __DIR__ . '/bootstrap.php';
 use PayPal\Api\Amount;
 use PayPal\Api\Details;
