@@ -4,6 +4,14 @@
 	Common functions used across samples
 */
 
+use PayPal\Api\Address;
+use PayPal\Api\CreditCard;
+use PayPal\Api\Amount;
+use PayPal\Api\Payer;
+use PayPal\Api\Payment;
+use PayPal\Api\Transaction;
+use PayPal\Api\FundingInstrument;
+
 /**
  * Helper Class for Printing Results
  *
@@ -43,11 +51,9 @@ class ResultPrinter
         } else {
 
             if (self::$printResultCounter == 0) {
-                include "header.html";
-                echo '
-                  <div class="row header"><div class="col-md-5 pull-left"><br /><a href="../index.php"><h1 class="home">&#10094;&#10094; Back to Samples</h1></a><br /></div> <br />
-                  <div class="col-md-4 pull-right"><img src="https://www.paypalobjects.com/webstatic/developer/logo2_paypal_developer_2x.png" class="logo" width="300"/></div> </div>';
-                echo '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
+
+             
+                
             }
             self::$printResultCounter++;
             echo '
@@ -72,16 +78,7 @@ class ResultPrinter
             self::printObject($response, $errorMessage);
             echo '</div></div>';
 
-            echo '<div class="hidden-lg"><ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" ><a href="#step-'.self::$printResultCounter .'-request" role="tab" data-toggle="tab">Request</a></li>
-                        <li role="presentation" class="active"><a href="#step-'.self::$printResultCounter .'-response" role="tab" data-toggle="tab">Response</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane" id="step-'.self::$printResultCounter .'-request"><h4>Request Object</h4>';
-            self::printObject($request) ;
-            echo '</div><div role="tabpanel" class="tab-pane active" id="step-'.self::$printResultCounter .'-response"><h4>Response Object</h4>';
-            self::printObject($response, $errorMessage);
-            echo '</div></div></div></div>
+            echo '</div>
             </div>
         </div>';
         }
