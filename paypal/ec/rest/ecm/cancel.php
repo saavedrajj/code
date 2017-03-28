@@ -5,7 +5,7 @@
 	<title>Document</title>
 </head>
 <body>
-<h1>Canceled</h1>
+<h1>Order Canceled</h1>
 	
 </body>
 </html>
