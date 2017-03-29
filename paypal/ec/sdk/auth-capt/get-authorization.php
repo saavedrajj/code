@@ -15,7 +15,7 @@
 	echo "PayerID: " . $payerId."<br>";
 	echo "token: " . $token."<br><br>";
 
-	$authorization = require 'create-authorization';
+	//$authorization = require 'create-authorization.php';
 	$authorizationId = $authorization->getId();
 	use PayPal\Api\Authorization;
 
