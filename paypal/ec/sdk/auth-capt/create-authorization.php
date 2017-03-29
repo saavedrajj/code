@@ -1,23 +1,35 @@
-<?php
-/*--- Set up the payment information object ---*/
-require __DIR__ . '/bootstrap.php';
-use PayPal\Api\Amount;
-use PayPal\Api\Details;
-use PayPal\Api\Item;
-use PayPal\Api\ItemList;
-use PayPal\Api\Payer;
-use PayPal\Api\Payment;
-use PayPal\Api\RedirectUrls;
-use PayPal\Api\Transaction;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Express Checkout - Authorization + Capture</title>
+</head>
+<body>
+  <h1>Create Authorization</h1>
+  <?php
+  /*--- Set up the payment information object ---*/
+  require __DIR__ . '/bootstrap.php';
+  use PayPal\Api\Amount;
+  use PayPal\Api\Details;
+  use PayPal\Api\Item;
+  use PayPal\Api\ItemList;
+  use PayPal\Api\Payer;
+  use PayPal\Api\Payment;
+  use PayPal\Api\RedirectUrls;
+  use PayPal\Api\Transaction;
 
 // Create new payer and method
-$payer = new Payer();
-$payer->setPaymentMethod("paypal");
+  $payer = new Payer();
+  $payer->setPaymentMethod("paypal");
 
-// Set redirect urls
+// ### Redirect urls
+// Set the urls that the buyer must be redirected to after 
+// payment approval/ cancellation.
+$baseUrl = getBaseUrl();
 $redirectUrls = new RedirectUrls();
-$redirectUrls->setReturnUrl('http://127.0.0.1/code/paypal/ec/sdk/ecm/review.php')
-->setCancelUrl('http://127.0.0.1/code/paypal/ec/sdk/ecm/cancel.php');
+$redirectUrls->setReturnUrl("$baseUrl/get-authorization.php")
+->setCancelUrl("$baseUrl/cancel-authorization.php");
+
 
 
 // ### Itemized information
@@ -25,18 +37,18 @@ $redirectUrls->setReturnUrl('http://127.0.0.1/code/paypal/ec/sdk/ecm/review.php'
 // information
 $item1 = new Item();
 $item1->setName('Ground Coffee 40 oz')
-    ->setDescription('Ground Coffee 40 oz')
-    ->setCurrency('GBP')
-    ->setQuantity(1)
-    ->setTax(0.3)
-    ->setPrice(7.50);
+->setDescription('Ground Coffee 40 oz')
+->setCurrency('GBP')
+->setQuantity(1)
+->setTax(0.3)
+->setPrice(7.50);
 $item2 = new Item();
 $item2->setName('Granola bars')
-    ->setDescription('Granola Bars with Peanuts')
-    ->setCurrency('GBP')
-    ->setQuantity(5)
-    ->setTax(0.2)
-    ->setPrice(2);
+->setDescription('Granola Bars with Peanuts')
+->setCurrency('GBP')
+->setQuantity(5)
+->setTax(0.2)
+->setPrice(2);
 
 $itemList = new ItemList();
 $itemList->setItems(array($item1, $item2));
@@ -47,8 +59,8 @@ $itemList->setItems(array($item1, $item2));
 // charges etc.
 $details = new Details();
 $details->setShipping(1.2)
-    ->setTax(1.3)
-    ->setSubtotal(17.5);
+->setTax(1.3)
+->setSubtotal(17.5);
 
 // ### Amount
 // Lets you specify a payment amount.
@@ -56,8 +68,8 @@ $details->setShipping(1.2)
 // such as shipping, tax.
 $amount = new Amount();
 $amount->setCurrency("GBP")
-    ->setTotal(20)
-    ->setDetails($details);
+->setTotal(20)
+->setDetails($details);
 
 // ### Transaction
 // A transaction defines the contract of a
@@ -65,14 +77,14 @@ $amount->setCurrency("GBP")
 // is fulfilling it.
 $transaction = new Transaction();
 $transaction->setAmount($amount)
-    ->setItemList($itemList)
-    ->setDescription("Payment description")
-    ->setInvoiceNumber(uniqid());
+->setItemList($itemList)
+->setDescription("Payment description")
+->setInvoiceNumber(uniqid());
 
 
 // Create the full payment object
 $payment = new Payment();
-$payment->setIntent('sale')
+$payment->setIntent('authorize')
 ->setPayer($payer)
 ->setRedirectUrls($redirectUrls)
 ->setTransactions(array($transaction));

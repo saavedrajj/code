@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-  <title>Express Checkout</title>
+  <title>Express Checkout - Authorization + Capture</title>
 </head>
 <body>
-	<h1>Execute Payment</h1>
+	<h1>Execute Authorization</h1>
   <?php
   require __DIR__ . '/bootstrap.php';
   use PayPal\Api\Amount;

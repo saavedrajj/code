@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+  <title>Express Checkout - Authorization + Capture</title>
 </head>
 <body>
-<h1>Order Canceled</h1>
-	
+	<h1>Order Canceled</h1>
 </body>
 </html>

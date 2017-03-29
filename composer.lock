@@ -4,7 +4,6 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "113332280b6c0cb6e220b03400ead5a8",
     "content-hash": "9ceeae86ff77fc7bbc20a3ba9d944573",
     "packages": [
         {
@@ -52,7 +51,7 @@
                 }
             ],
             "description": "Braintree PHP Client Library",
-            "time": "2017-02-16 19:59:04"
+            "time": "2017-02-16T19:59:04+00:00"
         },
         {
             "name": "paypal/rest-api-sdk-php",
@@ -101,7 +100,7 @@
                 "rest",
                 "sdk"
             ],
-            "time": "2016-12-14 21:59:21"
+            "time": "2016-12-14T21:59:21+00:00"
         },
         {
             "name": "psr/log",
@@ -148,7 +147,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10 12:19:37"
+            "time": "2016-10-10T12:19:37+00:00"
         },
         {
             "name": "stripe/stripe-php",
@@ -203,7 +202,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2017-03-22 17:51:32"
+            "time": "2017-03-22T17:51:32+00:00"
         },
         {
             "name": "twbs/bootstrap",
@@ -254,7 +253,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2016-07-25 15:51:55"
+            "time": "2016-07-25T15:51:55+00:00"
         }
     ],
     "packages-dev": [],

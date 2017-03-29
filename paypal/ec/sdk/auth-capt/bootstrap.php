@@ -1,6 +1,7 @@
 <?php
 // Autoload SDK package for composer based installations
 require '../../../../vendor/autoload.php';
+require 'common.php';
 
 $apiContext = new \PayPal\Rest\ApiContext(
 	new \PayPal\Auth\OAuthTokenCredential(

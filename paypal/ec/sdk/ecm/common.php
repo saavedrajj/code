@@ -1,5 +1,4 @@
 <?php
-
 /*
 	Common functions used across samples
 */
@@ -45,48 +44,48 @@ class ResultPrinter
             if (self::$printResultCounter == 0) {
                 include "header.html";
                 echo '
-                  <div class="row header"><div class="col-md-5 pull-left"><br /><a href="../index.php"><h1 class="home">&#10094;&#10094; Back to Samples</h1></a><br /></div> <br />
-                  <div class="col-md-4 pull-right"><img src="https://www.paypalobjects.com/webstatic/developer/logo2_paypal_developer_2x.png" class="logo" width="300"/></div> </div>';
+                <div class="row header"><div class="col-md-5 pull-left"><br /><a href="../index.php"><h1 class="home">&#10094;&#10094; Back to Samples</h1></a><br /></div> <br />
+                <div class="col-md-4 pull-right"><img src="https://www.paypalobjects.com/webstatic/developer/logo2_paypal_developer_2x.png" class="logo" width="300"/></div> </div>';
                 echo '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
             }
             self::$printResultCounter++;
             echo '
-        <div class="panel panel-default">
-            <div class="panel-heading '. ($errorMessage ? 'error' : '') .'" role="tab" id="heading-'.self::$printResultCounter.'">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#step-'. self::$printResultCounter .'" aria-expanded="false" aria-controls="step-'.self::$printResultCounter.'">
-            '. self::$printResultCounter .'. '. $title . ($errorMessage ? ' (Failed)' : '') . '</a>
-                </h4>
-            </div>
-            <div id="step-'.self::$printResultCounter.'" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-'. self::$printResultCounter . '">
-                <div class="panel-body">
-            ';
+            <div class="panel panel-default">
+                <div class="panel-heading '. ($errorMessage ? 'error' : '') .'" role="tab" id="heading-'.self::$printResultCounter.'">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#step-'. self::$printResultCounter .'" aria-expanded="false" aria-controls="step-'.self::$printResultCounter.'">
+                            '. self::$printResultCounter .'. '. $title . ($errorMessage ? ' (Failed)' : '') . '</a>
+                        </h4>
+                    </div>
+                    <div id="step-'.self::$printResultCounter.'" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-'. self::$printResultCounter . '">
+                        <div class="panel-body">
+                            ';
 
-            if ($objectId) {
-                echo "<div>" . ($objectName ? $objectName : "Object") . " with ID: $objectId </div>";
-            }
+                            if ($objectId) {
+                                echo "<div>" . ($objectName ? $objectName : "Object") . " with ID: $objectId </div>";
+                            }
 
-            echo '<div class="row hidden-xs hidden-sm hidden-md"><div class="col-md-6"><h4>Request Object</h4>';
-            self::printObject($request);
-            echo '</div><div class="col-md-6"><h4 class="'. ($errorMessage ? 'error' : '') .'">Response Object</h4>';
-            self::printObject($response, $errorMessage);
-            echo '</div></div>';
+                            echo '<div class="row hidden-xs hidden-sm hidden-md"><div class="col-md-6"><h4>Request Object</h4>';
+                            self::printObject($request);
+                            echo '</div><div class="col-md-6"><h4 class="'. ($errorMessage ? 'error' : '') .'">Response Object</h4>';
+                            self::printObject($response, $errorMessage);
+                            echo '</div></div>';
 
-            echo '<div class="hidden-lg"><ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" ><a href="#step-'.self::$printResultCounter .'-request" role="tab" data-toggle="tab">Request</a></li>
-                        <li role="presentation" class="active"><a href="#step-'.self::$printResultCounter .'-response" role="tab" data-toggle="tab">Response</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane" id="step-'.self::$printResultCounter .'-request"><h4>Request Object</h4>';
-            self::printObject($request) ;
-            echo '</div><div role="tabpanel" class="tab-pane active" id="step-'.self::$printResultCounter .'-response"><h4>Response Object</h4>';
-            self::printObject($response, $errorMessage);
-            echo '</div></div></div></div>
-            </div>
-        </div>';
-        }
-        flush();
-    }
+                            echo '<div class="hidden-lg"><ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" ><a href="#step-'.self::$printResultCounter .'-request" role="tab" data-toggle="tab">Request</a></li>
+                            <li role="presentation" class="active"><a href="#step-'.self::$printResultCounter .'-response" role="tab" data-toggle="tab">Response</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane" id="step-'.self::$printResultCounter .'-request"><h4>Request Object</h4>';
+                                self::printObject($request) ;
+                                echo '</div><div role="tabpanel" class="tab-pane active" id="step-'.self::$printResultCounter .'-response"><h4>Response Object</h4>';
+                                self::printObject($response, $errorMessage);
+                                echo '</div></div></div></div>
+                            </div>
+                        </div>';
+                    }
+                    flush();
+                }
 
     /**
      * Prints success response HTML Output to web page.
@@ -145,7 +144,7 @@ class ResultPrinter
     {
         if ($error) {
             echo '<p class="error"><i class="fa fa-exclamation-triangle"></i> '.
-             $error.
+            $error.
             '</p>';
         }
         if ($object) {
@@ -215,56 +214,56 @@ function json_format($json)
         { 
             case '{': 
             case '[': 
-                if(!$in_string) 
-                { 
-                    $new_json .= $char . "\n" . str_repeat($tab, $indent_level+1); 
-                    $indent_level++; 
-                } 
-                else 
-                { 
-                    $new_json .= $char; 
-                } 
-                break; 
+            if(!$in_string) 
+            { 
+                $new_json .= $char . "\n" . str_repeat($tab, $indent_level+1); 
+                $indent_level++; 
+            } 
+            else 
+            { 
+                $new_json .= $char; 
+            } 
+            break; 
             case '}': 
             case ']': 
-                if(!$in_string) 
-                { 
-                    $indent_level--; 
-                    $new_json .= "\n" . str_repeat($tab, $indent_level) . $char; 
-                } 
-                else 
-                { 
-                    $new_json .= $char; 
-                } 
-                break; 
-            case ',': 
-                if(!$in_string) 
-                { 
-                    $new_json .= ",\n" . str_repeat($tab, $indent_level); 
-                } 
-                else 
-                { 
-                    $new_json .= $char; 
-                } 
-                break; 
-            case ':': 
-                if(!$in_string) 
-                { 
-                    $new_json .= ": "; 
-                } 
-                else 
-                { 
-                    $new_json .= $char; 
-                } 
-                break; 
-            case '"': 
-                if($c > 0 && $json[$c-1] != '\\') 
-                { 
-                    $in_string = !$in_string; 
-                } 
-            default: 
+            if(!$in_string) 
+            { 
+                $indent_level--; 
+                $new_json .= "\n" . str_repeat($tab, $indent_level) . $char; 
+            } 
+            else 
+            { 
                 $new_json .= $char; 
-                break;                    
+            } 
+            break; 
+            case ',': 
+            if(!$in_string) 
+            { 
+                $new_json .= ",\n" . str_repeat($tab, $indent_level); 
+            } 
+            else 
+            { 
+                $new_json .= $char; 
+            } 
+            break; 
+            case ':': 
+            if(!$in_string) 
+            { 
+                $new_json .= ": "; 
+            } 
+            else 
+            { 
+                $new_json .= $char; 
+            } 
+            break; 
+            case '"': 
+            if($c > 0 && $json[$c-1] != '\\') 
+            { 
+                $in_string = !$in_string; 
+            } 
+            default: 
+            $new_json .= $char; 
+            break;                    
         } 
     } 
 
