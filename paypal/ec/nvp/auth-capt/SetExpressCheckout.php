@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>PayPal Authorization & Capture</title>
+  <title>Express Checkout - Authorization & Capture</title>
   <link rel="icon" href="https://www.paypalobjects.com/webstatic/icon/favicon.ico">
 </head>
 

@@ -1,9 +1,9 @@
-<?php require_once('../../../includes/config-es-custom.php'); ?>
+<?php require_once('../../../includes/config-uk-custom.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>PayPal Authorization & Capture</title>
+  <title>Express Checkout - Authorization & Capture</title>
   <link rel="icon" href="https://www.paypalobjects.com/webstatic/icon/favicon.ico">
 </head>
 
