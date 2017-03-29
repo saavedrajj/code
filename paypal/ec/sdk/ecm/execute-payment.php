@@ -1,5 +1,13 @@
-<?php
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <title>Express Checkout</title>
+</head>
+<body>
+	<h1>Execute Payment</h1>
+<?php
 require __DIR__ . '/bootstrap.php';
 use PayPal\Api\Amount;
 use PayPal\Api\Details;
@@ -20,7 +28,8 @@ $execution->setPayerId($payerId);
 try {
   // Execute payment
   $result = $payment->execute($execution, $apiContext);
-  var_dump($result);
+  //var_dump($result);
+  echo "<pre>".$result."</pre>";
 } catch (PayPal\Exception\PayPalConnectionException $ex) {
   echo $ex->getCode();
   echo $ex->getData();
