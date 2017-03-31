@@ -1,0 +1,23 @@
+BraintreeGateway gateway = new BraintreeGateway(
+  Environment.SANDBOX,
+  "5z2q3xqt9kkn65h3",
+  "h9r5st57vbcgqfgn",
+  "d1981e503efc8b2ab2e5e2a853fb8427"
+);
+
+Public Key
+h9r5st57vbcgqfgn
+
+Private Key
+d1981e503efc8b2ab2e5e2a853fb8427
+
+Environment
+sandbox
+
+Merchant ID
+5z2q3xqt9kkn65h3
+
+
+
+	
+
