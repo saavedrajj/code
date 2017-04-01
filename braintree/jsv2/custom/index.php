@@ -16,7 +16,7 @@
 	<script src="https://js.braintreegateway.com/js/braintree-2.31.0.min.js"></script>
 
 	<script>
-		braintree.setup("<?php echo $clientToken ?>", "dropin", {
+		braintree.setup("<?php echo $clientToken ?>", "custom", {
 			container: "payment-form"
 		});
 	</script>

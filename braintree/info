@@ -1,23 +1,18 @@
-BraintreeGateway gateway = new BraintreeGateway(
-  Environment.SANDBOX,
-  "5z2q3xqt9kkn65h3",
-  "h9r5st57vbcgqfgn",
-  "d1981e503efc8b2ab2e5e2a853fb8427"
-);
 
-Public Key
-h9r5st57vbcgqfgn
+Set Up Your Client
+https://developers.braintreepayments.com/start/hello-client/javascript/v2#setup
 
-Private Key
-d1981e503efc8b2ab2e5e2a853fb8427
+Set Up Your Server
+https://developers.braintreepayments.com/start/hello-server/php
 
-Environment
-sandbox
+Generate Client token
+https://developers.braintreepayments.com/reference/request/client-token/generate/php
 
-Merchant ID
-5z2q3xqt9kkn65h3
+Credit Cards - Testing and Go Live
+https://developers.braintreepayments.com/guides/credit-cards/testing-go-live/php
 
+Test amounts
+https://developers.braintreepayments.com/reference/general/testing/php#test-amounts
 
-
-	
-
+Hosted Fields - Setup and Integration
+https://developers.braintreepayments.com/guides/hosted-fields/setup-and-integration/javascript/v2
