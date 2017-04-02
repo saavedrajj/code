@@ -17,6 +17,7 @@
 		<label>Expiration Month</label><div id="expiration-month" class="hosted-field"></div>
 		<label>Expiration Year</label><div id="expiration-year" class="hosted-field"></div>
 		<label>Postal Code</label><div id="postal-code" class="hosted-field"></div>			
+		<div id="paypal-container"></div>
 		<input type="submit" id="submit" value="Pay">
 	</form>
 
@@ -74,7 +75,16 @@
 					selector: "#postal-code",
 					placeholder:"XXXXX"
 				}
-			}			
+			},	
+			paypal: {
+				container: "paypal-container",
+				singleUse: true,
+				displayName: 'Business Name',
+				intent: 'sale',
+				amount: '1',
+				currency: 'EUR',
+				locale: 'es_GB'
+			}
 		});
 	</script>
 </body>

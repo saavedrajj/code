@@ -17,6 +17,7 @@
 		<label>Expiration Month</label><input data-braintree-name="expiration_month" value="10">
 		<label>Expiration Year</label><input data-braintree-name="expiration_year" value="2020">
 		<label>Postal Code</label><input data-braintree-name="postal_code" value="SW0123SD">
+		<div id="paypal-container"></div>		
 		<input type="submit" id="submit" value="Pay">
 	</form>
 
@@ -24,7 +25,16 @@
 
 	<script>
 		braintree.setup("<?php echo $clientToken ?>", "custom", {
-			id: "checkout"
+			id: "checkout",
+			paypal: {
+				container: "paypal-container",
+				singleUse: true,
+				displayName: 'business Name',
+				intent: 'sale',
+				amount: '1',
+				currency: 'EUR',
+				locale: 'en_GB'
+			}
 		});
 	</script>
 </body>
