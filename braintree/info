@@ -16,3 +16,13 @@ https://developers.braintreepayments.com/reference/general/testing/php#test-amou
 
 Hosted Fields - Setup and Integration
 https://developers.braintreepayments.com/guides/hosted-fields/setup-and-integration/javascript/v2
+
+
+
+
+Braintree_Transaction::sale()
+https://developers.braintreepayments.com/reference/request/transaction/sale/php
+
+
+Credit card direct tokenization
+https://developers.braintreepayments.com/reference/client-reference/javascript/v2/credit-cards#credit-card-direct-tokenization
