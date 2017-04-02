@@ -1,3 +1,7 @@
+> Braintree PHP examples
+https://github.com/braintree/braintree_php_example
+
+> Configuration
 
 Set Up Your Client
 https://developers.braintreepayments.com/start/hello-client/javascript/v2#setup
@@ -8,21 +12,402 @@ https://developers.braintreepayments.com/start/hello-server/php
 Generate Client token
 https://developers.braintreepayments.com/reference/request/client-token/generate/php
 
+
+
+
+> Custom Integration
+
+Credit Cards - Client-Side Implementation
+https://developers.braintreepayments.com/guides/credit-cards/client-side/javascript/v2
+
+
+Credit Cards - Server-Side Implementation
+https://developers.braintreepayments.com/guides/credit-cards/server-side/php
+
+Braintree_Transaction::sale()
+https://developers.braintreepayments.com/reference/request/transaction/sale/php
+
+Credit card direct tokenization
+https://developers.braintreepayments.com/reference/client-reference/javascript/v2/credit-cards#credit-card-direct-tokenization
+
+
+
+
+
+
+
+
+
+
+> Hosted Fields
+
+Hosted Fields - Setup and Integration
+https://developers.braintreepayments.com/guides/hosted-fields/setup-and-integration/javascript/v2
+
+Hosted Fields - Upgrading From Custom To Hosted Fields
+https://developers.braintreepayments.com/guides/hosted-fields/upgrading-from-custom/javascript/v2
+
+Hosted Fields - Styling
+https://developers.braintreepayments.com/guides/hosted-fields/styling/javascript/v2
+
+
+
+>FAQs
+
+Countries
+https://developers.braintreepayments.com/reference/general/countries/php#list-of-countries
+
+> Testing
+
 Credit Cards - Testing and Go Live
 https://developers.braintreepayments.com/guides/credit-cards/testing-go-live/php
 
 Test amounts
 https://developers.braintreepayments.com/reference/general/testing/php#test-amounts
 
-Hosted Fields - Setup and Integration
-https://developers.braintreepayments.com/guides/hosted-fields/setup-and-integration/javascript/v2
 
 
 
 
-Braintree_Transaction::sale()
-https://developers.braintreepayments.com/reference/request/transaction/sale/php
 
 
-Credit card direct tokenization
-https://developers.braintreepayments.com/reference/client-reference/javascript/v2/credit-cards#credit-card-direct-tokenization
+
+
+
+
+
+
+
+Braintree\Result\Successful Object
+(
+    [success] => 1
+    [_returnObjectNames:Braintree\Result\Successful:private] => Array
+        (
+            [0] => transaction
+        )
+
+    [_attributes:protected] => Array
+        (
+        )
+
+    [transaction] => Braintree\Transaction Object
+        (
+            [_attributes:protected] => Array
+                (
+                    [id] => 1x7t3c7t
+                    [status] => submitted_for_settlement
+                    [type] => sale
+                    [currencyIsoCode] => EUR
+                    [amount] => 1.00
+                    [merchantAccountId] => iemerchant
+                    [subMerchantAccountId] => 
+                    [masterMerchantAccountId] => 
+                    [orderId] => 
+                    [createdAt] => DateTime Object
+                        (
+                            [date] => 2017-04-02 18:18:39.000000
+                            [timezone_type] => 3
+                            [timezone] => UTC
+                        )
+
+                    [updatedAt] => DateTime Object
+                        (
+                            [date] => 2017-04-02 18:18:39.000000
+                            [timezone_type] => 3
+                            [timezone] => UTC
+                        )
+
+                    [customer] => Array
+                        (
+                            [id] => 
+                            [firstName] => 
+                            [lastName] => 
+                            [company] => 
+                            [email] => 
+                            [website] => 
+                            [phone] => 
+                            [fax] => 
+                        )
+
+                    [billing] => Array
+                        (
+                            [id] => 
+                            [firstName] => 
+                            [lastName] => 
+                            [company] => 
+                            [streetAddress] => 
+                            [extendedAddress] => 
+                            [locality] => 
+                            [region] => 
+                            [postalCode] => D15NX33
+                            [countryName] => 
+                            [countryCodeAlpha2] => 
+                            [countryCodeAlpha3] => 
+                            [countryCodeNumeric] => 
+                        )
+
+                    [refundId] => 
+                    [refundIds] => Array
+                        (
+                        )
+
+                    [refundedTransactionId] => 
+                    [partialSettlementTransactionIds] => Array
+                        (
+                        )
+
+                    [authorizedTransactionId] => 
+                    [settlementBatchId] => 
+                    [shipping] => Array
+                        (
+                            [id] => 
+                            [firstName] => 
+                            [lastName] => 
+                            [company] => 
+                            [streetAddress] => 
+                            [extendedAddress] => 
+                            [locality] => 
+                            [region] => 
+                            [postalCode] => 
+                            [countryName] => 
+                            [countryCodeAlpha2] => 
+                            [countryCodeAlpha3] => 
+                            [countryCodeNumeric] => 
+                        )
+
+                    [customFields] => 
+                    [avsErrorResponseCode] => 
+                    [avsPostalCodeResponseCode] => M
+                    [avsStreetAddressResponseCode] => I
+                    [cvvResponseCode] => M
+                    [gatewayRejectionReason] => 
+                    [processorAuthorizationCode] => VT0SDK
+                    [processorResponseCode] => 1000
+                    [processorResponseText] => Approved
+                    [additionalProcessorResponse] => 
+                    [voiceReferralNumber] => 
+                    [purchaseOrderNumber] => 
+                    [taxAmount] => 
+                    [taxExempt] => 
+                    [creditCard] => Array
+                        (
+                            [token] => 
+                            [bin] => 222300
+                            [last4] => 0011
+                            [cardType] => MasterCard
+                            [expirationMonth] => 12
+                            [expirationYear] => 2020
+                            [customerLocation] => US
+                            [cardholderName] => 
+                            [imageUrl] => https://assets.braintreegateway.com/payment_method_logo/mastercard.png?environment=sandbox
+                            [prepaid] => Unknown
+                            [healthcare] => Unknown
+                            [debit] => Unknown
+                            [durbinRegulated] => Unknown
+                            [commercial] => Unknown
+                            [payroll] => Unknown
+                            [issuingBank] => Unknown
+                            [countryOfIssuance] => Unknown
+                            [productId] => Unknown
+                            [uniqueNumberIdentifier] => 
+                            [venmoSdk] => 
+                        )
+
+                    [statusHistory] => Array
+                        (
+                            [0] => Braintree\Transaction\StatusDetails Object
+                                (
+                                    [_attributes:protected] => Array
+                                        (
+                                            [timestamp] => DateTime Object
+                                                (
+                                                    [date] => 2017-04-02 18:18:39.000000
+                                                    [timezone_type] => 3
+                                                    [timezone] => UTC
+                                                )
+
+                                            [status] => authorized
+                                            [amount] => 1.00
+                                            [user] => ie_merchant@saavedrajj.com
+                                            [transactionSource] => api
+                                        )
+
+                                )
+
+                            [1] => Braintree\Transaction\StatusDetails Object
+                                (
+                                    [_attributes:protected] => Array
+                                        (
+                                            [timestamp] => DateTime Object
+                                                (
+                                                    [date] => 2017-04-02 18:18:39.000000
+                                                    [timezone_type] => 3
+                                                    [timezone] => UTC
+                                                )
+
+                                            [status] => submitted_for_settlement
+                                            [amount] => 1.00
+                                            [user] => ie_merchant@saavedrajj.com
+                                            [transactionSource] => api
+                                        )
+
+                                )
+
+                        )
+
+                    [planId] => 
+                    [subscriptionId] => 
+                    [subscription] => Array
+                        (
+                            [billingPeriodEndDate] => 
+                            [billingPeriodStartDate] => 
+                        )
+
+                    [addOns] => Array
+                        (
+                        )
+
+                    [discounts] => Array
+                        (
+                        )
+
+                    [descriptor] => Braintree\Descriptor Object
+                        (
+                            [_attributes:protected] => Array
+                                (
+                                    [name] => 
+                                    [phone] => 
+                                    [url] => 
+                                )
+
+                        )
+
+                    [recurring] => 
+                    [channel] => 
+                    [serviceFeeAmount] => 
+                    [escrowStatus] => 
+                    [disbursementDetails] => Braintree\DisbursementDetails Object
+                        (
+                            [_attributes:protected] => Array
+                                (
+                                    [disbursementDate] => 
+                                    [settlementAmount] => 
+                                    [settlementCurrencyIsoCode] => 
+                                    [settlementCurrencyExchangeRate] => 
+                                    [fundsHeld] => 
+                                    [success] => 
+                                )
+
+                        )
+
+                    [disputes] => Array
+                        (
+                        )
+
+                    [paymentInstrumentType] => credit_card
+                    [processorSettlementResponseCode] => 
+                    [processorSettlementResponseText] => 
+                    [threeDSecureInfo] => 
+                    [creditCardDetails] => Braintree\Transaction\CreditCardDetails Object
+                        (
+                            [_attributes:protected] => Array
+                                (
+                                    [token] => 
+                                    [bin] => 222300
+                                    [last4] => 0011
+                                    [cardType] => MasterCard
+                                    [expirationMonth] => 12
+                                    [expirationYear] => 2020
+                                    [customerLocation] => US
+                                    [cardholderName] => 
+                                    [imageUrl] => https://assets.braintreegateway.com/payment_method_logo/mastercard.png?environment=sandbox
+                                    [prepaid] => Unknown
+                                    [healthcare] => Unknown
+                                    [debit] => Unknown
+                                    [durbinRegulated] => Unknown
+                                    [commercial] => Unknown
+                                    [payroll] => Unknown
+                                    [issuingBank] => Unknown
+                                    [countryOfIssuance] => Unknown
+                                    [productId] => Unknown
+                                    [uniqueNumberIdentifier] => 
+                                    [venmoSdk] => 
+                                    [expirationDate] => 12/2020
+                                    [maskedNumber] => 222300******0011
+                                )
+
+                        )
+
+                    [customerDetails] => Braintree\Transaction\CustomerDetails Object
+                        (
+                            [_attributes:protected] => Array
+                                (
+                                    [id] => 
+                                    [firstName] => 
+                                    [lastName] => 
+                                    [company] => 
+                                    [email] => 
+                                    [website] => 
+                                    [phone] => 
+                                    [fax] => 
+                                )
+
+                        )
+
+                    [billingDetails] => Braintree\Transaction\AddressDetails Object
+                        (
+                            [_attributes:protected] => Array
+                                (
+                                    [id] => 
+                                    [firstName] => 
+                                    [lastName] => 
+                                    [company] => 
+                                    [streetAddress] => 
+                                    [extendedAddress] => 
+                                    [locality] => 
+                                    [region] => 
+                                    [postalCode] => D15NX33
+                                    [countryName] => 
+                                    [countryCodeAlpha2] => 
+                                    [countryCodeAlpha3] => 
+                                    [countryCodeNumeric] => 
+                                )
+
+                        )
+
+                    [shippingDetails] => Braintree\Transaction\AddressDetails Object
+                        (
+                            [_attributes:protected] => Array
+                                (
+                                    [id] => 
+                                    [firstName] => 
+                                    [lastName] => 
+                                    [company] => 
+                                    [streetAddress] => 
+                                    [extendedAddress] => 
+                                    [locality] => 
+                                    [region] => 
+                                    [postalCode] => 
+                                    [countryName] => 
+                                    [countryCodeAlpha2] => 
+                                    [countryCodeAlpha3] => 
+                                    [countryCodeNumeric] => 
+                                )
+
+                        )
+
+                    [subscriptionDetails] => Braintree\Transaction\SubscriptionDetails Object
+                        (
+                            [_attributes:protected] => Array
+                                (
+                                    [billingPeriodEndDate] => 
+                                    [billingPeriodStartDate] => 
+                                )
+
+                        )
+
+                )
+
+        )
+
+)

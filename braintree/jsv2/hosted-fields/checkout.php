@@ -1,6 +1,6 @@
 <?php require_once("../../includes/braintree_init_ie.php"); ?>
 <?php $nonceFromTheClient = $_POST["payment_method_nonce"]; ?>
-
+<?php $cardholderName = $_POST["cardholder_name"]; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +20,9 @@
 		'fax' => '087654321',
 		'website' => 'http://www.johndoe.com',
 		'email' => 'john@doe.com'
+		],
+		'creditCard' => [
+		'cardholderName' => $cardholderName
 		],
 		'billing' => [
 		'firstName' => 'John',

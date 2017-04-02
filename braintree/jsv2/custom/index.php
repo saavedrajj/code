@@ -12,11 +12,11 @@
 <body>
 	<form id="checkout" action="checkout.php" method="post">
 		<label>Cardholder name</label><input data-braintree-name="cardholder_name" value="John Doe">
-		<label>Number</label><input data-braintree-name="number" value="4111111111111111">
-		<label>CVV</label><input data-braintree-name="cvv" value="100">
+		<label>Number</label><input data-braintree-name="number" value="6011111111111117">
+		<label>CVV</label><input data-braintree-name="cvv" value="123">
 		<label>Expiration Month</label><input data-braintree-name="expiration_month" value="10">
 		<label>Expiration Year</label><input data-braintree-name="expiration_year" value="2020">
-		<label>Postal Code</label><input data-braintree-name="postal_code" value="94107">
+		<label>Postal Code</label><input data-braintree-name="postal_code" value="SW0123SD">
 		<input type="submit" id="submit" value="Pay">
 	</form>
 
