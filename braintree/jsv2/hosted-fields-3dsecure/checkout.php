@@ -22,32 +22,36 @@
 		'email' => 'john@doe.com'
 		],
 		'creditCard' => [
-		'cardholderName' => $cardholderName
+			'cardholderName' => $cardholderName
 		],
 		'billing' => [
-		'firstName' => 'John',
-		'lastName' => 'Doe',
-		'company' => 'Acme Ltd',
-		'streetAddress' => '123 Oxford St',
-		'extendedAddress' => 'Soho',
-		'locality' => 'London',
-		'region' => 'London',
-		/*'postalCode' => '',*/
-		'countryCodeAlpha2' => 'GB'
+			'firstName' => 'John',
+			'lastName' => 'Doe',
+			'company' => 'Acme Ltd',
+			'streetAddress' => '123 Oxford St',
+			'extendedAddress' => 'Soho',
+			'locality' => 'London',
+			'region' => 'London',
+			/*'postalCode' => '',*/
+			'countryCodeAlpha2' => 'GB'
 		],
 		'shipping' => [
-		'firstName' => 'John',
-		'lastName' => 'Doe',
-		'company' => 'Acme Ltd',
-		'streetAddress' => '123 Abbey Road',
-		'extendedAddress' => 'St. John Wood',
-		'locality' => 'London',
-		'region' => 'London',
-		'postalCode' => 'SW0456SD',
-		'countryCodeAlpha2' => 'GB'
+			'firstName' => 'John',
+			'lastName' => 'Doe',
+			'company' => 'Acme Ltd',
+			'streetAddress' => '123 Abbey Road',
+			'extendedAddress' => 'St. John Wood',
+			'locality' => 'London',
+			'region' => 'London',
+			'postalCode' => 'SW0456SD',
+			'countryCodeAlpha2' => 'GB'
 		],
 		'options' => [
-		'submitForSettlement' => True
+			'submitForSettlement' => True
+			/*,
+			'threeDSecure' => [
+            	'required' => true
+        	]*/
 		]
 		]);
 		?>
