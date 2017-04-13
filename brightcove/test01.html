@@ -11,7 +11,7 @@
 	<center>
 		<h4><i>Brightcove Player Below:</i></h4>
 		<video id="MyPlayer"
-		data-video-id="5214098325001" 
+		data-video-id="ref:skillassessment" 
 		data-account="4413047305001" 
 		data-player="Sym5dzjWx"
 		data-embed="default"
@@ -37,7 +37,7 @@
 		});
 
 		function playVideo() {
-			myPlayer.catalog.getVideo(5214098325001, function(error,video){
+			myPlayer.catalog.getVideo(ref:skillassessment, function(error,video){
 				console.log('error', error);
 				myPlayer.catalog.load(video);
 				myPlayer.play();
