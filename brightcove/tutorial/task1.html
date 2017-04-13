@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task1</title>
+	<style>
+		.video-js {
+			width:480px;
+			height:270px;
+		}
+	</style>
+</head>
+<body>
+	<video 
+	id="myPlayerID"
+	data-video-id="5390325119001" 
+	data-account="5390320872001" 
+	data-player="r1W3eywax" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+	<script src="//players.brightcove.net/5390320872001/r1W3eywax_default/index.min.js"></script>
+	<script>
+		videojs('myPlayerID').on('loadedmetadata', function(){
+			var myPlayer = this;
+			myPlayer.play();
+			myPlayer.on('timeupdate',showUpdate);
+		});
+
+		function showUpdate(evt){
+			console.log(evt);
+		}
+	</script>
+</body>
+</html>

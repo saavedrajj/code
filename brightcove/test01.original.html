@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<title>Test Assignment</title>
+		<style>
+		body 
+		{background-image:url("http://cs1.brightcodes.net/nori/SkillsAssessment/bg_main_image2.png");}
+		</style>
+	</head>
+	<body>
+	
+		<center>
+			<h4><i>Brightcove Player Below:</i></h4>
+			<video id="MyPlayer"
+				data-video-id="5214098325001" 
+				data-account="4413047305001" 
+				data-player="Sym5dzjWx"
+				data-embed="default"
+				class="video-js" controls
+				width="480"
+				height="270">
+			</video>
+			<script src="//players.brightcove.net/4413047305001/Sym5dzjWx_default/index.min.js"></script>
+			
+			<br/><br/>
+			
+			<button id="playbtn">PLAY</button>
+			<button id="pausebtn">PAUSE</button>
+			<button id="mutebtn">MUTE</button>
+			
+			<!-- Begin Script Logger --> 
+			
+			<h4><i>Player Log Results:</i></h4>
+			<div id="BCscriptingLog"> 
+				<p><textarea id="logger" name="logger" rows="11" cols="65"></textarea></p>
+			</div>
+			 
+			<!-- End Debugging Helper -->
+			
+			<script>
+				videojs('MyPlayer').ready(function(){
+					var myPlayer = this,
+					logger = document.getElementById('logger');
+					
+					myPlayer.on('loadeddata',function(){
+						logger.value += 'loadeddata dispatched\n';
+					});
+					
+					myPlayer.on('loadedmetadata',function(){
+						logger.value += 'loadedmetadata dispatched\n';
+					});
+					
+					myPlayer.on('loadstart',function(){
+						logger.value += 'loadstart dispatched\n';
+					});
+					
+					myPlayer.on('play',function(){
+						logger.value += 'play dispatched\n';
+					});
+
+					myPlayer.on('pause',function(){
+						logger.value += 'pause dispatched\n';
+					});
+				});
+			</script>
+
+		</center>
+	</body>
+</html>

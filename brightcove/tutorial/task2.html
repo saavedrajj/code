@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task1</title>
+	<style>
+		.video-js {
+			width:480px;
+			height:270px;
+		}
+	</style>
+</head>
+<body>
+	<video 
+	id="myPlayerID"
+	data-video-id="5390325119001" 
+	data-account="5390320872001" 
+	data-player="r1W3eywax" 
+	data-embed="default" 
+	data-application-id 
+	class="video-js" 
+	controls></video>
+
+	<p><button onclick="changeVideo1()">change video 1</button></p>
+	<p><button onclick="changeVideo2()">change video 2</button></p>	
+	<script src="//players.brightcove.net/5390320872001/r1W3eywax_default/index.min.js"></script>
+	<script>
+		var Player;
+		videojs('myPlayerID').on('loadedmetadata', function(){
+			myPlayer = this;
+			myPlayer.play();
+
+		});
+
+		function changeVideo1() {
+			myPlayer.catalog.getVideo(5390325119001, function(error,video){
+				console.log('error', error);
+				myPlayer.catalog.load(video);
+				myPlayer.play();
+
+			});
+		};	
+
+		function changeVideo2() {
+			myPlayer.catalog.getVideo(5390325118001, function(error,video){
+				console.log('error', error);
+				myPlayer.catalog.load(video);
+				myPlayer.play();
+
+			});
+		};	
+
+
+	</script>
+</body>
+</html>
