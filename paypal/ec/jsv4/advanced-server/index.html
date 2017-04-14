@@ -25,14 +25,14 @@
             },
             commit: true, /* 'Pay Now' button for ECM flow */
             payment: function(resolve, reject) {
-                var CREATE_PAYMENT_URL = 'http://127.0.0.1/code/paypal/ec/advanced-server/get-paymentid.php';
+                var CREATE_PAYMENT_URL = 'http://127.0.0.1/code/paypal/ec/jsv4/advanced-server/get-paymentid.php';
                 paypal.request.post(CREATE_PAYMENT_URL)
                 .then(function(data) { resolve(data.paymentID); })
                 .catch(function(err) { reject(err); });
             },
             onAuthorize: function(data) {
                 /* Note: you can display a confirmation page before executing */
-                var EXECUTE_PAYMENT_URL = 'http://127.0.0.1/code/paypal/ec/advanced-server/executePayment.php';
+                var EXECUTE_PAYMENT_URL = 'http://127.0.0.1/code/paypal/ec/jsv4/advanced-server/executePayment.php';
                 paypal.request.post(EXECUTE_PAYMENT_URL,
                     { paymentID: data.paymentID, payerID: data.payerID })
                 .then(function(data) { 

@@ -49,43 +49,72 @@ $OAuthresponse = OAuth_rest($endpointToken, $postData, $clientID, $clientSecret)
     $_SESSION['access_token'] = $OAuthresponse["access_token"];
 
     $postdata = '
-    {
-      "intent":"authorize",
-      "redirect_urls":{
-        "return_url":"http://127.0.0.1/code/paypal/ec/advanced-server/executePayment.php?access_token='.$_SESSION['access_token'].'",
-        "cancel_url":"http://www.yahoo.com/"
-      },
-      "payer":{
-        "payment_method":"paypal"
-      },
-      "transactions":[
+{
+  "intent": "sale",
+  "payer": {
+  "payment_method": "paypal"
+  },
+  "transactions": [
+  {
+    "amount": {
+    "total": "30.11",
+    "currency": "USD",
+    "details": {
+      "subtotal": "30.00",
+      "tax": "0.07",
+      "shipping": "0.03",
+      "handling_fee": "1.00",
+      "shipping_discount": "-1.00",
+      "insurance": "0.01"
+    }
+    },
+    "description": "The payment transaction description.",
+    "custom": "EBAY_EMS_90048630024435",
+    "invoice_number": "48787589673",
+    "payment_options": {
+    "allowed_payment_method": "INSTANT_FUNDING_SOURCE"
+    },
+    "soft_descriptor": "ECHI5786786",
+    "item_list": {
+    "items": [
       {
-        "amount":{
-          "total":"1",
-          "currency":"GBP"
-        },
-        "description":"This is the payment transaction description.",
-        "custom": "This is my custom field",
-        "invoice_number": "48787589673' . time() . '"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      "name": "hat",
+      "description": "Brown hat.",
+      "quantity": "5",
+      "price": "3",
+      "tax": "0.01",
+      "sku": "1",
+      "currency": "USD"
+      },
+      {
+      "name": "handbag",
+      "description": "Black handbag.",
+      "quantity": "1",
+      "price": "15",
+      "tax": "0.02",
+      "sku": "product34",
+      "currency": "USD"
       }
-      ]
-      
-    }';
+    ],
+    "shipping_address": {
+      "recipient_name": "Brian Robinson",
+      "line1": "4th Floor",
+      "line2": "Unit #34",
+      "city": "San Jose",
+      "country_code": "US",
+      "postal_code": "95131",
+      "phone": "011862212345678",
+      "state": "CA"
+    }
+    }
+  }
+  ],
+  "note_to_payer": "Contact us for any questions on your order.",
+  "redirect_urls": {
+  "return_url": "http://www.paypal.com/return",
+  "cancel_url": "http://www.paypal.com/cancel"
+  }
+}';
 
     $apicall = REST_make_post_call($endpointPayment, $postdata, $OAuthresponse["access_token"]);
     echo '{"paymentID": "'.$apicall["id"].'"}';       
