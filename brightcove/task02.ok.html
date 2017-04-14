@@ -8,7 +8,7 @@
     font-family: Arial,Helvetica,sans-serif;
   }
 
-  #BCLcontainingBlock {
+  #BCLbodyContent {
     width: 50%;
     margin-left: 10px;
     margin-bottom: 10px;
@@ -62,11 +62,11 @@
   <h1>Responsive Player Test - Make the Player below responsive !</h1>
   <h3><i>(Something is not right with this page, player disappears after you try to re-size browser manually. 
     Can you figure out what could be the problem?)</i></h3>
-
-    <div id="BCLcontainingBlock">
+    
+    <div id="BCLbodyContent">
      <div class="BCLvideoWrapper">
-
-
+      
+       
        <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
 
        <object id="myExperience1195045806001" class="BrightcoveExperience">
@@ -86,9 +86,9 @@
          <param name="templateReadyHandler" value="onTemplateReady" />
        </object>
        <script type="text/javascript">brightcove.createExperiences();</script>
-
+       
      </div>
-
+     
      <script type="text/javascript" src="http://cs1.brightcodes.net/vineet/HTML_files/jQuery1.9_local.min.js"></script>
      <script type="text/javascript">
      var BCL = {};
@@ -96,13 +96,13 @@
      var $BCLbodyContent = $('#BCLbodyContent');
      var $BCLvideoWrapper = $('.BCLvideoWrapper');
      var $BCLcontainingBlock = $('#BCLcontainingBlock');
-
+     
      var onTemplateLoaded = function (experienceID) {
-
+      
       BCL.player = brightcove.api.getExperience(experienceID);
     }
     var onTemplateReady = function(evtObj) {
-
+      
       BCL.experienceModule = BCL.player.getModule(brightcove.api.modules.APIModules.EXPERIENCE);
     }
       // dynamic resizer
@@ -110,12 +110,12 @@
         BCL.log("window resize");
         BCL.resizePlayer(BCL.currentPlayerWidth);
       });
-
+      
       // resizing function
       BCL.resizePlayer = function(newWidth) {
         BCL.log(newWidth);
         $BCLcontainingBlock.width($BCLbodyContent.width() * newWidth);
-        BCL.experienceModule.setSize($BCLcontainingBlock.width(),$BCLcontainingBlock.height());
+        BCL.experienceModule.setSize($BCLbodyContent.width(),$BCLbodyContent.height());
         BCL.currentPlayerWidth = newWidth;
       }
       // debugging tool - wraps console.log to avoid errors in IE 7 & 8
@@ -131,7 +131,3 @@
     </script>
   </body>
   </html>
-
-  <!--
-    BCLbodyContent
-  -->
