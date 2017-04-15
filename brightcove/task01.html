@@ -7,8 +7,8 @@
 	body {background-image:url("http://cs1.brightcodes.net/nori/SkillsAssessment/bg_main_image2.png";}
 </style>
 </head>
-<body>
 
+<body>
 	<center>
 		<h4><i>Brightcove Player Below:</i></h4>
 		<video 
@@ -39,6 +39,7 @@
 
 	<script>
 	var myPlayer;
+
 	videojs('MyPlayer').ready(function(){
 		myPlayer = this,
 		logger = document.getElementById('logger');
@@ -66,26 +67,29 @@
 			/*console.log('error',error);*/
 		});
 		myPlayer.on('catalog_response',function(evt){
+			var i;
+			i=0; i++;
 			var api_response = JSON.parse(evt.response.response);
 			console.log(api_response.long_description);
-			console.log(api_response.thumbnail);		
+			console.log(api_response.thumbnail);
+			console.log(i);	
 		});
-
 	});
+
 	function playVideo() {
-		/*console.log("PLAY");*/
+		console.log("PLAY");
 		myPlayer.play();
 	}
 	function pauseVideo() {
-		/*console.log("PAUSE");*/		
+		console.log("PAUSE");	
 		myPlayer.pause();
 	}
 	function muteVideo() {
-		/*console.log("MUTE");*/
+		console.log("MUTE");
 		myPlayer.muted(true);		
 	}
 	function unmuteVideo() {
-		/*console.log("UNMUTE");*/
+		console.log("UNMUTE");
 		myPlayer.muted(false);		
 	}
 </script>

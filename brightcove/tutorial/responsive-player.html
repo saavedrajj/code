@@ -27,7 +27,7 @@
 
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi aliquam possimus perferendis perspiciatis, at explicabo laboriosam vel voluptas repudiandae! At facere, dicta illo laborum, ducimus deserunt. Tempora temporibus perferendis cupiditate?</p>
 
-  <div class="containing-block">
+  <div id="container2" class="containing-block">
     <div id="container1" class="outer-container">
 
       <!-- Start of Brightcove Player -->
@@ -44,18 +44,58 @@
         <param name="isUI" value="true" />
         <param name="dynamicStreaming" value="true" />
         <param name="@videoPlayer" value="1754276206001" />
+
+        <!-- smart player api params -->
+        <param name="includeAPI" value="true" />
+        <param name="templateLoadHandler" value="onTemplateLoad" />
+        <param name="templateReadyHandler" value="onTemplateReady" />
       </object>
 
-      <script type="text/javascript">
-      brightcove.createExperiences();
-    </script>
-    <!-- End of Brightcove Player -->
-    
-  </div>
+    </object>
+
+    <script type="text/javascript">
+    brightcove.createExperiences();
+  </script>
+  <!-- End of Brightcove Player -->
+
+</div>
 </div>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ullam voluptate eveniet beatae repellat natus odit aliquid expedita nesciunt maiores laudantium dicta, quasi nisi iusto ipsum temporibus, eligendi harum deserunt!</p>
+<script type="text/javascript">
+var player,
+APIModules,
+videoPlayer,
+experienceModule;
 
+    // utility
+    logit = function (context, message) {
+      if (console) {
+        console.log(context, message);
+      }
+    };
+
+    function onTemplateLoad(experienceID) {
+      logit("EVENT", "onTemplateLoad");
+      player = brightcove.api.getExperience(experienceID);
+      APIModules = brightcove.api.modules.APIModules;
+    }
+    
+    function onTemplateReady(evt) {
+      logit("EVENT", "onTemplateReady");
+      videoPlayer = player.getModule(APIModules.VIDEO_PLAYER);
+      experienceModule = player.getModule(APIModules.EXPERIENCE);
+      videoPlayer.play();
+      videoPlayer.getCurrentRendition(function (renditionDTO) {
+        var newPercentage = (renditionDTO.frameHeight / renditionDTO.frameWidth) * 100;
+        newPercentage = newPercentage + "%";
+        logit("Video Width = ", renditionDTO.frameWidth);
+        logit("Video Height = ", renditionDTO.frameHeight);
+      logit("New Percentage = ", newPercentage);
+      document.getElementById("container1").style.paddingBottom = newPercentage;
+    });
+}
+</script>
 
 
 </body>

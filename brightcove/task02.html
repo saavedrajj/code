@@ -1,13 +1,14 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Responsive Player Test</title>
   <style type="text/css">
   body {
     font-family: Arial,Helvetica,sans-serif;
   }
 
-  #BCLcontainingBlock {
+ .BCLcontainingBlock {
     width: 50%;
     margin-left: 10px;
     margin-bottom: 10px;
@@ -66,8 +67,8 @@
   <h3><i>(Something is not right with this page, player disappears after you try to re-size browser manually. 
     Can you figure out what could be the problem?)</i></h3>
 
-    <div id="BCLcontainingBlock">
-     <div class="BCLvideoWrapper">
+    <div class="BCLcontainingBlock">
+     <div  class="BCLvideoWrapper">
 
       <!-- Start of Brightcove Player -->
       <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
@@ -94,34 +95,38 @@
      <script type="text/javascript" src="http://cs1.brightcodes.net/vineet/HTML_files/jQuery1.9_local.min.js"></script>
 
      <script type="text/javascript">
+     
      var BCL = {};
      BCL.currentPlayerWidth = .5;
      var $BCLbodyContent = $('#BCLbodyContent');
      var $BCLvideoWrapper = $('.BCLvideoWrapper');
-     var $BCLcontainingBlock = $('#BCLcontainingBlock');
+     var $BCLcontainingBlock = $('.BCLcontainingBlock');
 
      var onTemplateLoaded = function (experienceID) {
+
       BCL.player = brightcove.api.getExperience(experienceID);
     }
-
     var onTemplateReady = function(evtObj) {
+
       BCL.experienceModule = BCL.player.getModule(brightcove.api.modules.APIModules.EXPERIENCE);
     }
-      // dynamic resizer
-      $(window).on('resize',function() {
-        BCL.log("window resize");
-        BCL.resizePlayer(BCL.currentPlayerWidth);
-      });
 
-      // resizing function
-      BCL.resizePlayer = function(newWidth) {
+    $(window).on('resize',function() {
+      BCL.log("window resize");
+      BCL.resizePlayer(BCL.currentPlayerWidth);
+    });
+
+
+    BCL.resizePlayer = function(newWidth) {
+      BCL.log(newWidth);
+
         BCL.log(newWidth);
-        /*$BCLcontainingBlock.width($BCLbodyContent.width() * newWidth);
+        /*$BCLcontainingBlock.width($BCLbodyContent.width() * newWidth);*/
         BCL.experienceModule.setSize($BCLcontainingBlock.width(),$BCLcontainingBlock.height());
-        BCL.currentPlayerWidth = newWidth;*/
+        BCL.currentPlayerWidth = newWidth;     
       }
 
-      // debugging tool - wraps console.log to avoid errors in IE 7 & 8
+
       BCL.log = function(message) {
         if (window["console"] && console["log"]) {
           var d = new Date();
@@ -129,6 +134,7 @@
           console.log(message);
         }
       }
+
 
     </script>
     <!-- End of BrBCLbodyContentightcove Player -->
