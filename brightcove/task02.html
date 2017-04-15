@@ -1,4 +1,3 @@
-
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
@@ -22,6 +21,7 @@
     height: 0;
   }
 
+
   * html .BCLvideoWrapper {
     margin-bottom: 45px;
     margin-top: 0;
@@ -39,9 +39,11 @@
     left: 0;
     top: 0;
   }
+
   pre {
     font-size: 14px;
   }
+
   .BCLbutton {
     background-color: #ffffff;
     background-image: -webkit-gradient(radial, 50% 50%,0,50% 50%,200, from(#dddddd), to(#ffffff));
@@ -56,6 +58,7 @@
     padding: 5px;
     cursor: pointer;
   }
+
 </style>
 </head>
 <body>
@@ -66,30 +69,30 @@
     <div id="BCLcontainingBlock">
      <div class="BCLvideoWrapper">
 
+      <!-- Start of Brightcove Player -->
+      <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+      <object id="myExperience1195045806001" class="BrightcoveExperience">
+       <param name="bgcolor" value="#FFFFFF" />
+       <param name="width" value="100%" />
+       <param name="height" value="100%" />
+       <param name="playerID" value="1655292658001" />
+       <param name="playerKey" value="AQ~~,AAAADXdqFgE~,aEKmio9UXai4AfuyXjS4fpJNnDLOcLqh" />
+       <param name="isVid" value="true" />
+       <param name="isUI" value="true" />
+       <param name="dynamicStreaming" value="true" />
+       <param name="@videoPlayer" value="1807962446001" />
 
-       <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+       <param name="htmlFallback" value="true" />
+       <param name="autoStart" value="false"/>
+       <param name="includeAPI" value="true" />
+       <param name="templateLoadHandler" value="onTemplateLoaded" />
+       <param name="templateReadyHandler" value="onTemplateReady" />
+     </object>
+     <script type="text/javascript">brightcove.createExperiences();</script>
 
-       <object id="myExperience1195045806001" class="BrightcoveExperience">
-         <param name="bgcolor" value="#FFFFFF" />
-         <param name="width" value="100%" />
-         <param name="height" value="100%" />
-         <param name="playerID" value="1655292658001" />
-         <param name="playerKey" value="AQ~~,AAAADXdqFgE~,aEKmio9UXai4AfuyXjS4fpJNnDLOcLqh" />
-         <param name="isVid" value="true" />
-         <param name="isUI" value="true" />
-         <param name="dynamicStreaming" value="true" />
-         <param name="htmlFallback" value="true" />
-         <param name="@videoPlayer" value="1807962446001" />
-         <param name="autoStart" value="false"/>
-         <param name="includeAPI" value="true" />
-         <param name="templateLoadHandler" value="onTemplateLoaded" />
-         <param name="templateReadyHandler" value="onTemplateReady" />
-       </object>
-       <script type="text/javascript">brightcove.createExperiences();</script>
-
-     </div>
 
      <script type="text/javascript" src="http://cs1.brightcodes.net/vineet/HTML_files/jQuery1.9_local.min.js"></script>
+
      <script type="text/javascript">
      var BCL = {};
      BCL.currentPlayerWidth = .5;
@@ -98,11 +101,10 @@
      var $BCLcontainingBlock = $('#BCLcontainingBlock');
 
      var onTemplateLoaded = function (experienceID) {
-
       BCL.player = brightcove.api.getExperience(experienceID);
     }
-    var onTemplateReady = function(evtObj) {
 
+    var onTemplateReady = function(evtObj) {
       BCL.experienceModule = BCL.player.getModule(brightcove.api.modules.APIModules.EXPERIENCE);
     }
       // dynamic resizer
@@ -114,10 +116,11 @@
       // resizing function
       BCL.resizePlayer = function(newWidth) {
         BCL.log(newWidth);
-        $BCLcontainingBlock.width($BCLbodyContent.width() * newWidth);
+        /*$BCLcontainingBlock.width($BCLbodyContent.width() * newWidth);
         BCL.experienceModule.setSize($BCLcontainingBlock.width(),$BCLcontainingBlock.height());
-        BCL.currentPlayerWidth = newWidth;
+        BCL.currentPlayerWidth = newWidth;*/
       }
+
       // debugging tool - wraps console.log to avoid errors in IE 7 & 8
       BCL.log = function(message) {
         if (window["console"] && console["log"]) {
@@ -127,11 +130,11 @@
         }
       }
 
-
     </script>
-  </body>
-  </html>
+    <!-- End of BrBCLbodyContentightcove Player -->
 
-  <!--
-    BCLbodyContent
-  -->
+  </div>       
+</div>
+
+</body>
+</html>

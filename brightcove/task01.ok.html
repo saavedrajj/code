@@ -22,7 +22,9 @@
 		width="480"
 		height="270">
 	</video>
+
 	<script src="//players.brightcove.net/4413047305001/Sym5dzjWx_default/index.min.js"></script>
+
 	<br/><br/>
 
 	<button id="playbtn" onclick="playVideo()">PLAY</button>
@@ -30,65 +32,80 @@
 	<button id="mutebtn" onclick="muteVideo()">MUTE</button>
 	<button id="mutebtn" onclick="unmuteVideo()">UNMUTE</button>
 
-	<!-- Begin Script Logger --> 
-	<h4><i>Player Log Results:</i></h4>
-	<div id="BCscriptingLog"> 
-		<p><textarea id="logger" name="logger" rows="11" cols="65"></textarea></p>
-	</div>
-	<!-- End Debugging Helper -->
-
 	<script>
 	var myPlayer;
-	videojs('MyPlayer').ready(function(){
-		myPlayer = this,
-		logger = document.getElementById('logger');
 
-		myPlayer.on('loadeddata',function(){
-			logger.value += 'loadeddata dispatched\n';
-		});
-
-		myPlayer.on('loadedmetadata',function(){
-			logger.value += 'loadedmetadata dispatched\n';
-		});
-
-		myPlayer.on('loadstart',function(){
-			logger.value += 'loadstart dispatched\n';
-		});
-
-		myPlayer.on('play',function(){
-			logger.value += 'play dispatched\n';
-		});
-
-		myPlayer.on('pause',function(){
-			logger.value += 'pause dispatched\n';
-		});
+	videojs("MyPlayer").on('loadedmetadata',function(){
+		myPlayer = this;
+		
 		myPlayer.catalog.getVideo('ref:skillassessment', function(error, video){
 			/*console.log('error',error);*/
 		});
-		myPlayer.on('catalog_response',function(evt){
-			var api_response = JSON.parse(evt.response.response);
-			console.log(api_response.long_description);
-			console.log(api_response.thumbnail);		
-		});
-
 	});
+
 	function playVideo() {
-		/*console.log("PLAY");*/
+		console.log("PLAY");
 		myPlayer.play();
 	}
+
 	function pauseVideo() {
-		/*console.log("PAUSE");*/		
+		console.log("PAUSE");				
 		myPlayer.pause();
 	}
+
 	function muteVideo() {
-		/*console.log("MUTE");*/
+		console.log("MUTE");
 		myPlayer.muted(true);		
 	}
+
 	function unmuteVideo() {
-		/*console.log("UNMUTE");*/
+		console.log("UNMUTE");
 		myPlayer.muted(false);		
 	}
+</script>			
+
+
+<!-- Begin Script Logger --> 
+<h4><i>Player Log Results:</i></h4>
+<div id="BCscriptingLog"> 
+	<p><textarea id="logger" name="logger" rows="11" cols="65"></textarea></p>
+</div>
+<!-- End Debugging Helper -->
+
+<script>
+videojs('MyPlayer').ready(function(){
+	var myPlayer = this,
+	logger = document.getElementById('logger');
+
+	myPlayer.on('loadeddata',function(){
+		logger.value += 'loadeddata dispatched\n';
+	});
+
+	myPlayer.on('loadedmetadata',function(){
+		logger.value += 'loadedmetadata dispatched\n';
+	});
+
+	myPlayer.on('loadstart',function(){
+		logger.value += 'loadstart dispatched\n';
+	});
+
+	myPlayer.on('play',function(){
+		logger.value += 'play dispatched\n';
+	});
+
+	myPlayer.on('pause',function(){
+		logger.value += 'pause dispatched\n';
+	});
+
+	myPlayer.on('catalog_response',function(evt){
+		var api_response = JSON.parse(evt.response.response);
+		logger.value += 'long_description:\n' + api_response.long_description + '\n\n';
+		logger.value += 'thumbnail:\n' + api_response.thumbnail + '\n\n';
+	});
+
+});
 </script>
+
 </center>
 </body>
 </html>
