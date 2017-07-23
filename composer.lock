@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "braintree/braintree_php",
-            "version": "3.22.0",
+            "version": "3.23.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/braintree/braintree_php.git",
-                "reference": "402617b803779bed5ae899209afa75ef9950becc"
+                "reference": "8a66302c0ae9d4be120f8c4e02603027f2067196"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/402617b803779bed5ae899209afa75ef9950becc",
-                "reference": "402617b803779bed5ae899209afa75ef9950becc",
+                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/8a66302c0ae9d4be120f8c4e02603027f2067196",
+                "reference": "8a66302c0ae9d4be120f8c4e02603027f2067196",
                 "shasum": ""
             },
             "require": {
@@ -51,7 +51,7 @@
                 }
             ],
             "description": "Braintree PHP Client Library",
-            "time": "2017-02-16T19:59:04+00:00"
+            "time": "2017-05-05T21:51:18+00:00"
         },
         {
             "name": "paypal/rest-api-sdk-php",
@@ -151,16 +151,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v4.5.1",
+            "version": "v4.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "420d34ae71059700ea2a2e466670f66ddd97777d"
+                "reference": "1ce201a9fb8bda96e87789f4cd952518f37b88e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/420d34ae71059700ea2a2e466670f66ddd97777d",
-                "reference": "420d34ae71059700ea2a2e466670f66ddd97777d",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/1ce201a9fb8bda96e87789f4cd952518f37b88e0",
+                "reference": "1ce201a9fb8bda96e87789f4cd952518f37b88e0",
                 "shasum": ""
             },
             "require": {
@@ -202,7 +202,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2017-03-22T17:51:32+00:00"
+            "time": "2017-05-10T18:53:00+00:00"
         },
         {
             "name": "twbs/bootstrap",
