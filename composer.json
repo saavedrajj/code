@@ -1,8 +1,6 @@
 {
 	"require": {
 		"paypal/rest-api-sdk-php": "*",
-		"braintree/braintree_php" : "3.*",
-		"stripe/stripe-php": "4.*",
-		"twbs/bootstrap": "^3.3"        
+		"braintree/braintree_php" : "3.*"   
 	}
 }
